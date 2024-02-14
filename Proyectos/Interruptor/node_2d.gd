@@ -13,10 +13,12 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	if get_node("Sprite2D").is_visible():
-		get_node("Sprite2D").hide()
 	
-	else:
-		get_node("Sprite2D").show()
+	$Sprite2D.visible = not $Sprite2D.visible
+	#if get_node("Sprite2D").is_visible():
+		#get_node("Sprite2D").hide()
+	#
+	#else:
+		#get_node("Sprite2D").show()
 			
 		
