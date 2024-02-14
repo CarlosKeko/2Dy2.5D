@@ -1,3 +1,4 @@
+class_name Arrel
 extends Node2D
 
 
