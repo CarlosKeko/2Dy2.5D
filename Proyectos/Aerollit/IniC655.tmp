@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmixhcrkc2sfs"]
+
+[ext_resource type="Script" path="res://Inici.gd" id="1_sy2o8"]
+
+[node name="Inici" type="Node2D"]
+position = Vector2(234, 112)
+script = ExtResource("1_sy2o8")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -77.0
+offset_top = -59.0
+offset_right = 84.0
+offset_bottom = -6.0
+text = "INICI"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="."]
+offset_left = -77.0
+offset_top = 6.0
+offset_right = 84.0
+offset_bottom = 59.0
+text = "FI
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

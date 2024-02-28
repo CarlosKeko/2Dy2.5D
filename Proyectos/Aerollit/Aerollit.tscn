@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsvcplklweysu"]
+
+[ext_resource type="Texture2D" uid="uid://cm4o4onqoh3y0" path="res://roc.png" id="1_hs8rb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aorge"]
+friction = 0.33
+bounce = 0.66
+
+[node name="Aerollit" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_aorge")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, 8.5)
+texture = ExtResource("1_hs8rb")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2, -0.5)
+polygon = PackedVector2Array(-39, -61, -8, -66, 25, -61, 46, -31, 47, -13, 43, 23, 33, 41, 17, 63, -12, 69, -18, 45, -24, 18, -48, 13, -47, -22, -49, -45)

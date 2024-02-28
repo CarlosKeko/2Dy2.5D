@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://brarsc2q83c4l"]
+
+[ext_resource type="PackedScene" uid="uid://bsvcplklweysu" path="res://Aerollit.tscn" id="1_jy8i4"]
+[ext_resource type="PackedScene" uid="uid://8tefk3o33fp6" path="res://Planxa.tscn" id="2_od4mc"]
+
+[node name="Escenari" type="Node2D"]
+rotation = 0.00233163
+
+[node name="Aerollit" parent="." instance=ExtResource("1_jy8i4")]
+position = Vector2(-425.663, 144.993)
+
+[node name="Planxa" parent="." instance=ExtResource("2_od4mc")]
+position = Vector2(559.381, 591.697)
+
+[node name="Planxa2" parent="." instance=ExtResource("2_od4mc")]
+position = Vector2(-516.252, 750.206)
+
+[node name="Aerollit2" parent="." instance=ExtResource("1_jy8i4")]
+position = Vector2(572.022, 8.66626)
+
+[node name="Planxa3" parent="." instance=ExtResource("2_od4mc")]
+position = Vector2(1010.96, 410.644)
+rotation = -0.742973
+
+[node name="Planxa4" parent="." instance=ExtResource("2_od4mc")]
+position = Vector2(92.9908, 424.784)
+rotation = 0.714973
