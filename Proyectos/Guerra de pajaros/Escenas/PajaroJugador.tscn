@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct8j3bkbgaefo"]
+
+[ext_resource type="Texture2D" uid="uid://b5kmv4gb60k3m" path="res://Sprites/PajaroJugador.png" id="1_nsssb"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.204167, 0.259009)
+texture = ExtResource("1_nsssb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

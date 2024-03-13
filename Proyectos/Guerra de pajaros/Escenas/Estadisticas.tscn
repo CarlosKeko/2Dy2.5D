@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://4gas2i2qc8ab"]
+
+[ext_resource type="Texture2D" uid="uid://chdvs1v8bb4of" path="res://Sprites/FondoMenu.jpg" id="1_sblko"]
+
+[node name="Estadisticas" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.75, 323)
+scale = Vector2(1.46561, 1.45701)
+texture = ExtResource("1_sblko")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 453.0
+offset_top = 66.0
+offset_right = 767.0
+offset_bottom = 228.0
+text = "ACABADOOOOOOOOO"

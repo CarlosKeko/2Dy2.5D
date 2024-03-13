@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdkxic62ayn35"]
+
+[ext_resource type="Texture2D" uid="uid://bspjrn278a2mq" path="res://Sprites/PajaroMaquina.png" id="1_myugt"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.68174, 1.7818)
+rotation = -6.27989
+scale = Vector2(0.314084, 0.301756)
+texture = ExtResource("1_myugt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
