@@ -13,3 +13,7 @@ config_version=5
 config/name="Guerra de pajaros"
 run/main_scene="res://Escenas/inicio.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+
+[autoload]
+
+Global="*res://Global.gd"

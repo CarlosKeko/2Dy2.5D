@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkvnx0nrwyqbh"]
+
+[ext_resource type="Script" path="res://Escenas/Escenario.gd" id="1_6qv11"]
+[ext_resource type="Texture2D" uid="uid://bmmgjxag1h18" path="res://Sprites/FondoEscenario.jpg" id="1_bhh6l"]
+[ext_resource type="PackedScene" uid="uid://ct8j3bkbgaefo" path="res://Escenas/PajaroJugador.tscn" id="2_j3ehg"]
+[ext_resource type="PackedScene" uid="uid://cdkxic62ayn35" path="res://Escenas/PajaroOrdenador.tscn" id="3_d7qkp"]
+
+[node name="Escenario" type="Node2D"]
+script = ExtResource("1_6qv11")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(577.889, 323)
+scale = Vector2(0.599074, 0.596296)
+texture = ExtResource("1_bhh6l")
+
+[node name="Contador" type="Label" parent="."]
+offset_left = 1048.0
+offset_top = 16.0
+offset_right = 1143.0
+offset_bottom = 45.0
+text = "Contador
+"
+
+[node name="Puntos" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 15.0
+offset_right = 129.0
+offset_bottom = 45.0
+text = "Puntos
+"
+
+[node name="Node2D" parent="." instance=ExtResource("2_j3ehg")]
+position = Vector2(138, 311)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("3_d7qkp")]
+position = Vector2(1020, 309)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -16,18 +16,19 @@ scale = Vector2(0.599074, 0.596296)
 texture = ExtResource("1_bhh6l")
 
 [node name="Contador" type="Label" parent="."]
-offset_left = 1088.0
-offset_top = 610.0
-offset_right = 1183.0
-offset_bottom = 639.0
-text = "00:00"
+offset_left = 1040.0
+offset_top = 609.0
+offset_right = 1135.0
+offset_bottom = 638.0
+text = "Contador
+"
 
 [node name="Puntos" type="Label" parent="."]
 offset_left = 25.0
 offset_top = 606.0
 offset_right = 128.0
 offset_bottom = 636.0
-text = "Puntos: 0
+text = "Puntos
 "
 
 [node name="PajaroJugador" parent="." instance=ExtResource("2_j3ehg")]

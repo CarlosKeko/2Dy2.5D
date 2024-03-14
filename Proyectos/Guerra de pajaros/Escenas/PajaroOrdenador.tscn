@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdkxic62ayn35"]
+[gd_scene load_steps=3 format=3 uid="uid://cdkxic62ayn35"]
 
+[ext_resource type="Script" path="res://Escenas/PajaroOrdenador.gd" id="1_lpq64"]
 [ext_resource type="Texture2D" uid="uid://bspjrn278a2mq" path="res://Sprites/PajaroMaquina.png" id="1_myugt"]
 
 [node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_lpq64")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7.68174, 1.7818)
@@ -11,3 +13,8 @@ scale = Vector2(0.314084, 0.301756)
 texture = ExtResource("1_myugt")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-42, 8, -35, 3, -30, 3, -30, -14, -12, -30, 22, -30, 33, -25, 40, -19, 40, -14, 51, -14, 56, -8, 58, 8, 51, 13, 46, 24, 40, 29, 29, 31, 28, 37, -1, 36, -1, 31, -30, 30, -35, 25)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

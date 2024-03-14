@@ -16,22 +16,22 @@ scale = Vector2(0.599074, 0.596296)
 texture = ExtResource("1_bhh6l")
 
 [node name="Contador" type="Label" parent="."]
-offset_left = 1088.0
-offset_top = 610.0
-offset_right = 1183.0
-offset_bottom = 639.0
-text = "00:00"
+offset_left = 1048.0
+offset_top = 16.0
+offset_right = 1143.0
+offset_bottom = 45.0
+text = "Contador
+"
 
 [node name="Puntos" type="Label" parent="."]
-offset_left = 25.0
-offset_top = 606.0
-offset_right = 128.0
-offset_bottom = 636.0
-text = "Puntos: 0
+offset_left = 26.0
+offset_top = 15.0
+offset_right = 129.0
+offset_bottom = 45.0
+text = "Puntos
 "
 
 [node name="PajaroJugador" parent="." instance=ExtResource("2_j3ehg")]
-visible = false
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_i0lse")
 sleeping = true
@@ -39,7 +39,6 @@ linear_velocity = Vector2(100, 0)
 constant_torque = 300.0
 
 [node name="PajaroMaquina" parent="." instance=ExtResource("3_d7qkp")]
-visible = false
 position = Vector2(1134, 1)
 
 [node name="Timer" type="Timer" parent="."]
@@ -48,10 +47,5 @@ wait_time = 120.0
 [node name="TimerPajaro" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="TimerMaquina" type="Timer" parent="."]
-
-[connection signal="body_entered" from="PajaroJugador" to="." method="_on_pajaro_jugador_body_entered"]
-[connection signal="input_event" from="PajaroJugador" to="." method="_on_pajaro_jugador_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerPajaro" to="." method="_on_timer_pajaro_timeout"]
-[connection signal="timeout" from="TimerMaquina" to="." method="_on_timer_maquina_timeout"]

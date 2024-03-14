@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://4gas2i2qc8ab"]
+[gd_scene load_steps=3 format=3 uid="uid://4gas2i2qc8ab"]
 
+[ext_resource type="Script" path="res://Escenas/Estadisticas.gd" id="1_q23eo"]
 [ext_resource type="Texture2D" uid="uid://chdvs1v8bb4of" path="res://Sprites/FondoMenu.jpg" id="1_sblko"]
 
 [node name="Estadisticas" type="Node2D"]
+script = ExtResource("1_q23eo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(575.75, 323)
@@ -10,8 +12,25 @@ scale = Vector2(1.46561, 1.45701)
 texture = ExtResource("1_sblko")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 453.0
-offset_top = 66.0
-offset_right = 767.0
-offset_bottom = 228.0
-text = "ACABADOOOOOOOOO"
+offset_left = 458.0
+offset_top = 58.0
+offset_right = 772.0
+offset_bottom = 220.0
+text = "Numero de puntos:"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 440.0
+offset_top = 248.0
+offset_right = 664.0
+offset_bottom = 313.0
+text = "Volver a jugar"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 442.0
+offset_top = 373.0
+offset_right = 665.0
+offset_bottom = 440.0
+text = "Salir"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
