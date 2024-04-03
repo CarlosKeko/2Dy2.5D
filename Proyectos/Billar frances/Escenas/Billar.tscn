@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://bf5sn3u74o3o4"]
+
+[ext_resource type="Script" path="res://Escenas/Billar.gd" id="1_grj30"]
+[ext_resource type="PackedScene" uid="uid://cr5lasf2d5i27" path="res://Escenas/Mesa.tscn" id="2_d2711"]
+[ext_resource type="PackedScene" uid="uid://dn3a4qdi2wdk0" path="res://Escenas/Bola.tscn" id="3_08rel"]
+[ext_resource type="Script" path="res://Escenas/Bola.gd" id="4_0ytmt"]
+[ext_resource type="PackedScene" uid="uid://65ydh5eq66x0" path="res://Escenas/Pal.tscn" id="4_18lb3"]
+[ext_resource type="Script" path="res://Escenas/BolaVerda.gd" id="5_5mvyl"]
+[ext_resource type="Script" path="res://Escenas/BolaVermella.gd" id="6_tyh0w"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_grj30")
+
+[node name="Mesa" parent="." instance=ExtResource("2_d2711")]
+
+[node name="BolaGroga" parent="." instance=ExtResource("3_08rel")]
+position = Vector2(479, 304)
+script = ExtResource("4_0ytmt")
+
+[node name="BolaVerda" parent="." instance=ExtResource("3_08rel")]
+position = Vector2(214, 300)
+script = ExtResource("5_5mvyl")
+
+[node name="BolaVermella" parent="." instance=ExtResource("3_08rel")]
+position = Vector2(214, 427)
+script = ExtResource("6_tyh0w")
+
+[node name="Tempus" type="Timer" parent="."]
+
+[node name="Pal" parent="." instance=ExtResource("4_18lb3")]
+position = Vector2(-48, 346)
+
+[connection signal="shoot" from="Pal" to="." method="_on_pal_shoot"]

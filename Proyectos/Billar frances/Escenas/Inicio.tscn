@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://wy8sbc5mkcix"]
+
+[ext_resource type="Script" path="res://Escenas/Inicio.gd" id="1_imygd"]
+[ext_resource type="Texture2D" uid="uid://cuaixv4p066v" path="res://Sprites/1920x1080-px-billiards-black-1227868-wallhere.com.jpg" id="2_rcsfm"]
+
+[node name="Inicio" type="Node2D"]
+script = ExtResource("1_imygd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(561.873, 332.906)
+scale = Vector2(0.617841, 0.614988)
+texture = ExtResource("2_rcsfm")
+
+[node name="Start" type="Button" parent="."]
+offset_left = 398.0
+offset_top = 274.0
+offset_right = 699.0
+offset_bottom = 381.0
+text = "START"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 399.0
+offset_top = 417.0
+offset_right = 698.0
+offset_bottom = 520.0
+text = "EXIT"
+
+[node name="Titulo" type="Label" parent="."]
+offset_left = 347.0
+offset_top = 48.0
+offset_right = 743.0
+offset_bottom = 201.0
+text = "BILLAR FRANCES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Punts" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 157.0
+offset_right = 239.0
+offset_bottom = 249.0
+text = "Puntos:"
+
+[node name="Caramboles" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 237.0
+offset_right = 239.0
+offset_bottom = 329.0
+text = "Caramboles:"
+
+[node name="Guanyador" type="Label" parent="."]
+offset_left = 49.0
+offset_top = 314.0
+offset_right = 240.0
+offset_bottom = 406.0
+text = "Guanyador:"
+
+[connection signal="pressed" from="Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
