@@ -15,10 +15,10 @@ func _process(delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s83hr"]
-size = Vector2(1096, 37)
+size = Vector2(1096, 183.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utcfa"]
-size = Vector2(26, 572.5)
+size = Vector2(212.5, 560)
 
 [node name="Mesa" type="StaticBody2D"]
 script = SubResource("GDScript_egsk3")
@@ -29,17 +29,17 @@ scale = Vector2(0.930645, 1.03006)
 texture = ExtResource("1_6atx6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(577, 21.5)
+position = Vector2(578, -46)
 shape = SubResource("RectangleShape2D_s83hr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(579, 636)
+position = Vector2(578, 709)
 shape = SubResource("RectangleShape2D_s83hr")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(15, 328.25)
+position = Vector2(-77.5, 330)
 shape = SubResource("RectangleShape2D_utcfa")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(1141, 330)
+position = Vector2(1231.25, 332)
 shape = SubResource("RectangleShape2D_utcfa")

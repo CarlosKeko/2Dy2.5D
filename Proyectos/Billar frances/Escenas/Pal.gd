@@ -2,7 +2,7 @@ extends Sprite2D
 
 signal shoot
 
-var power : float = 0.0
+#var power : float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,10 +15,14 @@ func _process(delta):
 	look_at(mouse_pos)
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		power += 0.5
+		if Global.power < Global.max_power:		
+			Global.power += 0.05
+		
+		elif Global.power >= Global.max_power:
+			Global.power = 0
 		
 	else:
-		if power > 0:
+		if Global.power > 0:
 			var dir = mouse_pos - position
-			shoot.emit(power * dir)
-			power = 0
+			shoot.emit(Global.power * dir)
+			Global.power = 0

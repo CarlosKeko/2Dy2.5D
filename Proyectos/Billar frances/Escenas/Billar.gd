@@ -18,10 +18,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !bolasMoviendose:
+		$ProgressBar.position.x = _bolaActiva.position.x - (0.5 * $ProgressBar.size.x)
+		$ProgressBar.position.y = _bolaActiva.position.y + $ProgressBar.size.y
+		$ProgressBar.show()
+		$ProgressBar.value = Global.power * (100 / Global.max_power)
 		$Pal.position = _bolaActiva.position
 		$Pal.show()
 	
 	else:
+		$ProgressBar.hide()
 		$Pal.hide()
 	
 	if $BolaGroga.linear_velocity.length() >= 1 || $BolaVermella.linear_velocity.length() >= 1 || $BolaVerda.linear_velocity.length() >= 1:
@@ -31,5 +36,6 @@ func _process(delta):
 		bolasMoviendose = false
 
 func _on_pal_shoot(power):
+	#print(power)
 	if (!bolasMoviendose):
 		_bolaActiva.apply_central_impulse(power)

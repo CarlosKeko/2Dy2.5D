@@ -30,11 +30,4 @@ script = ExtResource("6_tyh0w")
 [node name="Pal" parent="." instance=ExtResource("4_18lb3")]
 position = Vector2(-48, 346)
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 231.0
-offset_top = 525.0
-offset_right = 340.0
-offset_bottom = 563.0
-show_percentage = false
-
 [connection signal="shoot" from="Pal" to="." method="_on_pal_shoot"]

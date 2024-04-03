@@ -5,6 +5,8 @@ const ESC_BILLAR:= preload("res://Escenas/Billar.tscn")
 const ESC_BOLA:= preload("res://Escenas/Bola.tscn")
 
 # variables globals del joc
+var power = 0.0
+var max_power = 3
 var g_caramboles_1:int # nombre de caramboles jugador 1
 var g_punts_1:int # nombre de punts jugador 1
 var g_caramboles_2:int # nombre de caramboles jugador 2

@@ -6,7 +6,10 @@
 [node name="Node2D" type="Sprite2D"]
 z_index = 2
 texture_filter = 1
-position = Vector2(1.00018, 2)
+position = Vector2(2.00002, 0)
 scale = Vector2(1.00476, 1)
-texture = ExtResource("1_e16ib")
 script = ExtResource("2_l2ngj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-218.958, 3)
+texture = ExtResource("1_e16ib")
