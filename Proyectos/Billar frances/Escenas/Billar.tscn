@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf5sn3u74o3o4"]
+[gd_scene load_steps=10 format=3 uid="uid://bf5sn3u74o3o4"]
 
 [ext_resource type="Script" path="res://Escenas/Billar.gd" id="1_grj30"]
 [ext_resource type="PackedScene" uid="uid://cr5lasf2d5i27" path="res://Escenas/Mesa.tscn" id="2_d2711"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://65ydh5eq66x0" path="res://Escenas/Pal.tscn" id="4_18lb3"]
 [ext_resource type="Script" path="res://Escenas/BolaVerda.gd" id="5_5mvyl"]
 [ext_resource type="Script" path="res://Escenas/BolaVermella.gd" id="6_tyh0w"]
+[ext_resource type="PackedScene" uid="uid://c4e4u1pqac470" path="res://Escenas/HUD.tscn" id="8_837c5"]
+[ext_resource type="Script" path="res://Escenas/HUD.gd" id="9_b5ku2"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_grj30")
@@ -37,4 +39,15 @@ offset_right = 340.0
 offset_bottom = 563.0
 show_percentage = false
 
+[node name="HUD" parent="." instance=ExtResource("8_837c5")]
+offset_left = 3.0
+offset_top = -29.0
+offset_right = 1155.0
+offset_bottom = 618.0
+script = ExtResource("9_b5ku2")
+
+[connection signal="body_entered" from="BolaGroga" to="." method="_on_bola_groga_body_entered"]
+[connection signal="body_entered" from="BolaVerda" to="." method="_on_bola_verda_body_entered"]
+[connection signal="body_shape_entered" from="BolaVerda" to="." method="_on_bola_verda_body_shape_entered"]
+[connection signal="body_shape_exited" from="BolaVerda" to="." method="_on_bola_verda_body_shape_exited"]
 [connection signal="shoot" from="Pal" to="." method="_on_pal_shoot"]

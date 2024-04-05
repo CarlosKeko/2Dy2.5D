@@ -26,33 +26,33 @@ offset_bottom = 520.0
 text = "EXIT"
 
 [node name="Titulo" type="Label" parent="."]
-offset_left = 347.0
-offset_top = 48.0
-offset_right = 743.0
-offset_bottom = 201.0
+offset_left = 340.0
+offset_top = -21.0
+offset_right = 736.0
+offset_bottom = 132.0
 text = "BILLAR FRANCES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Punts" type="Label" parent="."]
-offset_left = 48.0
-offset_top = 157.0
-offset_right = 239.0
-offset_bottom = 249.0
+offset_left = 161.0
+offset_top = 149.0
+offset_right = 447.0
+offset_bottom = 199.0
 text = "Puntos:"
 
 [node name="Caramboles" type="Label" parent="."]
-offset_left = 48.0
-offset_top = 237.0
-offset_right = 239.0
-offset_bottom = 329.0
+offset_left = 161.0
+offset_top = 189.0
+offset_right = 378.0
+offset_bottom = 238.0
 text = "Caramboles:"
 
 [node name="Guanyador" type="Label" parent="."]
-offset_left = 49.0
-offset_top = 314.0
-offset_right = 240.0
-offset_bottom = 406.0
+offset_left = 161.0
+offset_top = 110.0
+offset_right = 376.0
+offset_bottom = 162.0
 text = "Guanyador:"
 
 [connection signal="pressed" from="Start" to="." method="_on_button_pressed"]
