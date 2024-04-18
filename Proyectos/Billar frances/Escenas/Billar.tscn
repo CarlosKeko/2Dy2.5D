@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf5sn3u74o3o4"]
+[gd_scene load_steps=12 format=3 uid="uid://bf5sn3u74o3o4"]
 
 [ext_resource type="Script" path="res://Escenas/Billar.gd" id="1_grj30"]
 [ext_resource type="PackedScene" uid="uid://cr5lasf2d5i27" path="res://Escenas/Mesa.tscn" id="2_d2711"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Escenas/BolaVermella.gd" id="6_tyh0w"]
 [ext_resource type="PackedScene" uid="uid://c4e4u1pqac470" path="res://Escenas/HUD.tscn" id="8_837c5"]
 [ext_resource type="Script" path="res://Escenas/HUD.gd" id="9_b5ku2"]
+[ext_resource type="AudioStream" uid="uid://cbpk574w87iw0" path="res://Audios/White-pool-ball-hitting-a-solid-ball.wav" id="10_d4ic8"]
+[ext_resource type="AudioStream" uid="uid://detm57o0texfc" path="res://Audios/Pool-cue-hitting-ball.wav" id="11_vcqjb"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_grj30")
@@ -45,6 +47,12 @@ offset_top = -29.0
 offset_right = 1155.0
 offset_bottom = 618.0
 script = ExtResource("9_b5ku2")
+
+[node name="BolaDada" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_d4ic8")
+
+[node name="PaloBola" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_vcqjb")
 
 [connection signal="body_entered" from="BolaGroga" to="." method="_on_bola_groga_body_entered"]
 [connection signal="body_entered" from="BolaVerda" to="." method="_on_bola_verda_body_entered"]

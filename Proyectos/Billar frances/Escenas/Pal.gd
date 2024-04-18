@@ -16,7 +16,7 @@ func _process(delta):
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if Global.power < Global.max_power:		
-			Global.power += 0.05
+			Global.power += 0.03
 		
 		elif Global.power >= Global.max_power:
 			Global.power = 0

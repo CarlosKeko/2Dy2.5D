@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://p3uwy2ng52yi" path="res://Sprites/sphere-22.png" id="1_lj5yl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qg4gt"]
-bounce = 1.0
+friction = 0.0
+bounce = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbljp"]
 radius = 21.0238

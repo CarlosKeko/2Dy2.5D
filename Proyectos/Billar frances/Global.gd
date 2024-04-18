@@ -9,7 +9,7 @@ var partidaCompletada = false
 var _jugadorAct = "A"
 var max_tiradas = 10
 var power = 0.0
-var max_power = 3
+var max_power = 2
 var tiradas_1: int
 var tiradas_2: int
 var g_caramboles_1:int # nombre de caramboles jugador 1

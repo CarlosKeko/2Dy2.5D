@@ -61,6 +61,7 @@ func _process(delta):
 func _on_pal_shoot(power):
 	#print(power)
 	if (!bolasMoviendose):
+		$PaloBola.playing = true
 		_bolaActiva.apply_central_impulse(power)
 
 
@@ -81,21 +82,21 @@ func cambiar_turno():
 
 func calcularPuntuacion():
 	if _estatCarambola >= 3 && Global._jugadorAct == "A":
-		Global.g_caramboles_1 += 1
-		
 		if toquesTaula == 1:
+			Global.g_caramboles_1 += 1
 			Global.g_punts_1 += 3
 			
 		elif toquesTaula > 1:
+			Global.g_caramboles_1 += 1		
 			Global.g_punts_1 += 5
 	
 	elif _estatCarambola >= 3 && Global._jugadorAct == "B":
-		Global.g_caramboles_2 += 2
-		
 		if toquesTaula == 1:
+			Global.g_caramboles_2 += 1	
 			Global.g_punts_2 += 3
 			
 		elif toquesTaula > 1:
+			Global.g_caramboles_2 += 1		
 			Global.g_punts_2 += 5
 			
 	_estatCarambola = 0
@@ -114,8 +115,12 @@ func _on_bola_verda_body_entered(body):
 				_estatCarambola += 1
 				nomPrimeraBola = body.name
 				print("Carambola 1 Verde")
+				$BolaDada.playing = true
 		
 		if _estatCarambola == 1:
+			if toquesTaula >= 1 && body.name == $Mesa.name:
+				toquesTaula += 1
+			
 			if toquesTaula == 0 && body.name == $Mesa.name:
 				toquesTaula += 1
 				_estatCarambola += 1
@@ -125,11 +130,20 @@ func _on_bola_verda_body_entered(body):
 				_estatCarambola += 1
 				nomPrimeraBola = body.name
 				print("Carambola 2 Verde")
+				$BolaDada.playing = true
 				
 		if _estatCarambola == 2:
+			if toquesTaula >= 1 && body.name == $Mesa.name:
+				toquesTaula += 1
+			
 			if nomPrimeraBola != body.name && body.name != $Mesa.name && toquesTaula >= 1:
 				_estatCarambola += 1
 				print("Carambola level 3 verde")
+				$BolaDada.playing = true
+				
+		if _estatCarambola == 3:
+			if body.name == $Mesa.name:
+				toquesTaula += 1
 
 func _on_bola_groga_body_entered(body):
 	if Global._jugadorAct == "A":
@@ -143,8 +157,12 @@ func _on_bola_groga_body_entered(body):
 				_estatCarambola += 1
 				nomPrimeraBola = body.name
 				print("Carambola 1 Amarillo")
+				$BolaDada.playing = true
 		
 		if _estatCarambola == 1:
+			if toquesTaula >= 1 && body.name == $Mesa.name:
+				toquesTaula += 1
+			
 			if toquesTaula == 0 && body.name == $Mesa.name:
 				toquesTaula += 1
 				_estatCarambola += 1
@@ -154,8 +172,17 @@ func _on_bola_groga_body_entered(body):
 				_estatCarambola += 1
 				nomPrimeraBola = body.name
 				print("Carambola 2 Amarillo")
+				$BolaDada.playing = true
 				
 		if _estatCarambola == 2:
+			if toquesTaula >= 1 && body.name == $Mesa.name:
+				toquesTaula += 1
+			
 			if nomPrimeraBola != body.name && body.name != $Mesa.name && toquesTaula >= 1:
 				_estatCarambola += 1
 				print("Carambola level 3 amarillo")
+				$BolaDada.playing = true
+				
+		if _estatCarambola == 3:
+			if body.name == $Mesa.name:
+				toquesTaula += 1

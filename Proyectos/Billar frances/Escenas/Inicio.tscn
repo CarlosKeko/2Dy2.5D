@@ -55,7 +55,7 @@ offset_right = 376.0
 offset_bottom = 162.0
 text = "Guanyador:"
 
-[connection signal="pressed" from="Start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Exit" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_button_2_pressed"]
