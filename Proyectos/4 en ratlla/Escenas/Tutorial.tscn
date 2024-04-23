@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqc8634wk7kod"]
+
+[ext_resource type="Script" path="res://Escenas/Tutorial.gd" id="1_gikia"]
+[ext_resource type="Texture2D" uid="uid://coqqhea14vdbv" path="res://Sprites/Soft-Pink-Color-1920x1080.jpg" id="1_nlnh6"]
+
+[node name="Tutorial" type="Node2D"]
+position = Vector2(-6, -6)
+script = ExtResource("1_gikia")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(580, 327)
+scale = Vector2(0.597801, 0.595833)
+texture = ExtResource("1_nlnh6")
+
+[node name="Volver" type="Button" parent="."]
+offset_left = 530.0
+offset_top = 467.0
+offset_right = 599.0
+offset_bottom = 498.0
+text = "VOLVER
+"
+
+[node name="Titulo" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 526.0
+offset_top = 108.0
+offset_right = 603.0
+offset_bottom = 131.0
+text = "TUTORIAL"
+
+[node name="Texto" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 142.0
+offset_top = 238.0
+offset_right = 1027.0
+offset_bottom = 339.0
+text = "El joc es desenvolupa en un tauler d’un cert nombre de columnes 8 i files  7. Cada jugador, al seu torn,
+tria una columna no plena de fitxes i hi diposita una de les seves fitxes, que “cau” fins a la primera fila buida que
+troba a la columna triada, passant el torn a l’altre jugador. Simplement, el primer que aconsegueixi posar en línia 4
+de les seves fitxes haurà guanyat la partida. L'empat es possible."
+
+[connection signal="pressed" from="Volver" to="." method="_on_volver_pressed"]

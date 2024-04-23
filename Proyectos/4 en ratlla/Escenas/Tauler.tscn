@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b1tvmuk6bxav3"]
+
+[node name="Tauler" type="TextureRect"]
+
+[node name="FitxaOrd" type="Sprite2D" parent="."]
+
+[node name="FitxaHuma" type="Sprite2D" parent="."]
