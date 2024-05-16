@@ -157,7 +157,7 @@ script = ExtResource("1_ixppt")
 position = Vector2(-1, -9)
 sprite_frames = SubResource("SpriteFrames_1m081")
 animation = &"Idle left"
-frame_progress = 0.603002
+frame_progress = 0.856613
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -13.5)

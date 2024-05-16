@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bwlgfyvig5qtb"]
+[gd_scene load_steps=24 format=3 uid="uid://bwlgfyvig5qtb"]
 
 [ext_resource type="Script" path="res://Escenas/PersonajePrincipal.gd" id="1_ixppt"]
 [ext_resource type="Texture2D" uid="uid://dq7xvj6m2pv7h" path="res://Assets/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_25bfh"]
@@ -6,20 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dbdi4ywmxelew" path="res://Assets/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="4_l741n"]
 [ext_resource type="Texture2D" uid="uid://dn6qdypnmq1l4" path="res://Assets/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="5_wsvlj"]
 [ext_resource type="Texture2D" uid="uid://bxooce4itacgk" path="res://Assets/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="6_vfwtp"]
-[ext_resource type="Texture2D" uid="uid://5q6hfkgguvkk" path="res://Assets/Captain Clown Nose without Sword/01-Idle - LEFT/Idle 01.png" id="7_3l63m"]
 [ext_resource type="Texture2D" uid="uid://d2ycev7pkp5hv" path="res://Assets/Captain Clown Nose without Sword/03-Jump/Jump 01.png" id="7_cmfci"]
-[ext_resource type="Texture2D" uid="uid://bd55wc4e2rmsq" path="res://Assets/Captain Clown Nose without Sword/01-Idle - LEFT/Idle 02.png" id="8_fd7d7"]
 [ext_resource type="Texture2D" uid="uid://6lg6xqr4biau" path="res://Assets/Captain Clown Nose without Sword/03-Jump/Jump 02.png" id="8_s1raq"]
-[ext_resource type="Texture2D" uid="uid://cxbgepslydf85" path="res://Assets/Captain Clown Nose without Sword/01-Idle - LEFT/Idle 03.png" id="9_dhw18"]
 [ext_resource type="Texture2D" uid="uid://ddmd0fx14migg" path="res://Assets/Captain Clown Nose without Sword/03-Jump/Jump 03.png" id="9_iqqo5"]
-[ext_resource type="Texture2D" uid="uid://huqivujq8myc" path="res://Assets/Captain Clown Nose without Sword/03-Jump - LEFT/Jump 01 LEFT.png" id="10_1fnwy"]
-[ext_resource type="Texture2D" uid="uid://qdtugtkmw1o2" path="res://Assets/Captain Clown Nose without Sword/01-Idle - LEFT/Idle 04.png" id="10_odhws"]
 [ext_resource type="Texture2D" uid="uid://bvx2yqtbe4vnv" path="res://Assets/Captain Clown Nose without Sword/02-Run/Run 01.png" id="10_yb6d5"]
 [ext_resource type="Texture2D" uid="uid://uasc28xvst54" path="res://Assets/Captain Clown Nose without Sword/02-Run/Run 02.png" id="11_jgly7"]
-[ext_resource type="Texture2D" uid="uid://p2o5811bun22" path="res://Assets/Captain Clown Nose without Sword/03-Jump - LEFT/Jump 02 LEFT.png" id="11_jwk8t"]
-[ext_resource type="Texture2D" uid="uid://bjg0mmm560pfo" path="res://Assets/Captain Clown Nose without Sword/01-Idle - LEFT/Idle 05.png" id="11_svac0"]
 [ext_resource type="Texture2D" uid="uid://cphrh34cojytd" path="res://Assets/Captain Clown Nose without Sword/02-Run/Run 03.png" id="12_4o4eg"]
-[ext_resource type="Texture2D" uid="uid://dbuvqd5mk3pa8" path="res://Assets/Captain Clown Nose without Sword/03-Jump - LEFT/Jump 03 LEFT.png" id="12_i88hq"]
 [ext_resource type="Texture2D" uid="uid://dbher85mkb5hv" path="res://Assets/Captain Clown Nose without Sword/02-Run/Run 04.png" id="13_skjip"]
 [ext_resource type="Texture2D" uid="uid://ddv57pg8sogdb" path="res://Assets/Captain Clown Nose without Sword/02-Run/Run 05.png" id="14_atuj2"]
 [ext_resource type="Texture2D" uid="uid://kh1owsybbahg" path="res://Assets/Captain Clown Nose without Sword/02-Run/Run 06.png" id="15_a4qfo"]
@@ -54,26 +46,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_3l63m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_fd7d7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_dhw18")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_odhws")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_svac0")
-}],
-"loop": true,
-"name": &"Idle left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("7_cmfci")
 }, {
 "duration": 1.0,
@@ -84,20 +56,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"Jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_1fnwy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_jwk8t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_i88hq")
-}],
-"loop": false,
-"name": &"Jump left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -156,8 +114,9 @@ script = ExtResource("1_ixppt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -9)
 sprite_frames = SubResource("SpriteFrames_1m081")
-animation = &"Idle left"
-frame_progress = 0.603002
+animation = &"Jump"
+autoplay = "Idle"
+frame_progress = 0.884312
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -13.5)
