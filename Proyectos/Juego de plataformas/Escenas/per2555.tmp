@@ -178,8 +178,8 @@ script = ExtResource("1_ixppt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -9)
 sprite_frames = SubResource("SpriteFrames_1m081")
-animation = &"Ground"
-frame_progress = 0.0875669
+animation = &"Fall"
+frame_progress = 0.758359
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -13.5)
@@ -188,4 +188,3 @@ shape = SubResource("RectangleShape2D_7exfn")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -24)
 zoom = Vector2(4, 4)
-limit_bottom = 650
