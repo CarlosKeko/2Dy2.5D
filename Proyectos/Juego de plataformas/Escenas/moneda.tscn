@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://66r5pyfifwqr"]
+
+[ext_resource type="Script" path="res://Escenas/moneda.gd" id="1_rmvn2"]
+[ext_resource type="Texture2D" uid="uid://sqmfsydhkswp" path="res://Assets/Coin Effect/01.png" id="2_ah5ea"]
+[ext_resource type="Texture2D" uid="uid://ckxw38u2cf7ab" path="res://Assets/Coin Effect/02.png" id="3_ryfgq"]
+[ext_resource type="Texture2D" uid="uid://bunkqo4rhpeaa" path="res://Assets/Coin Effect/03.png" id="4_vmw16"]
+[ext_resource type="Texture2D" uid="uid://boxvnnwsxafmf" path="res://Assets/Gold Coin/01.png" id="5_yl4os"]
+[ext_resource type="Texture2D" uid="uid://busf4l4v8ov0q" path="res://Assets/Gold Coin/02.png" id="6_g24hi"]
+[ext_resource type="Texture2D" uid="uid://com5pergr47lv" path="res://Assets/Gold Coin/03.png" id="7_7v408"]
+[ext_resource type="Texture2D" uid="uid://h71gxm81ivei" path="res://Assets/Gold Coin/04.png" id="8_hvm3y"]
+[ext_resource type="AudioStream" uid="uid://di2ifoqylsuk" path="res://Audios/collectcoin-6075.mp3" id="9_jxawq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8pna"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ah5ea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ryfgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vmw16")
+}],
+"loop": true,
+"name": &"Cogida",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yl4os")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g24hi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7v408")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hvm3y")
+}],
+"loop": true,
+"name": &"Girar",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yoi38"]
+radius = 6.0
+
+[node name="Moneda" type="Area2D"]
+collision_layer = 8
+monitorable = false
+script = ExtResource("1_rmvn2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i8pna")
+animation = &"Girar"
+autoplay = "Girar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yoi38")
+
+[node name="Sonido" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_jxawq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="Sonido" to="." method="_on_sonido_finished"]

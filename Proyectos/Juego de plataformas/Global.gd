@@ -4,6 +4,8 @@ const ESC_INICI:= preload("res://Escenas/Inicio.tscn")
 const ESC_PRIMERNIVEL:= preload("res://Escenas/primer_nivel.tscn")
 const ESC_TUTORIAL:= preload("res://Escenas/tutorial.tscn")
 
+var score = 0
+
 # metodes globals
 func g_canvi_escena(nomEscenaAnar):
 	if (nomEscenaAnar == "PrimerNivel"):

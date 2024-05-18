@@ -29,6 +29,9 @@ func _on_body_entered(body):
 	if body.name != "PersonajePrincipal":
 		proyectilMuerto = true
 		$AnimatedSprite2D.play("AirAttack2")
+		
+		if body.name == "Cangrejo":
+			body.dead()
 
 
 
