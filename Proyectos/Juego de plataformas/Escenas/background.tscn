@@ -10,8 +10,8 @@ script = ExtResource("1_kvgna")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(10, 2)
-scale = Vector2(2.60708, 2.6225)
+position = Vector2(-3, 2)
+scale = Vector2(3.12083, 3.375)
 texture = ExtResource("2_mkret")
 centered = false
 region_enabled = true

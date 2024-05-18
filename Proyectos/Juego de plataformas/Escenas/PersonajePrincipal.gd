@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
+const PROYECTIL = preload("res://Escenas/proyectil.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") 
@@ -33,19 +34,57 @@ func _physics_process(delta):
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
 
+	if !$AttackColdown.is_stopped():
+		$TextureProgressBar.show()
+		$TextureProgressBar.value = ($AttackColdown.wait_time - $AttackColdown.time_left) * (100 / $AttackColdown.wait_time)
+
+	act_disparar()
 	move_and_slide()
 	act_animacio(direction)
 
 
+#Funcion para las animaciones
 func act_animacio(direction:int):
 	if is_on_floor():
 		if direction != 0:
-			anim.play("Run")
+			if $AttackColdown.is_stopped():
+				anim.play("RunSword")
+				
+			else:
+				anim.play("Run")
 			
 		else: 
-			anim.play("Idle")
+			if $AttackColdown.is_stopped():
+				anim.play("IdleSword")
+				
+			else:
+				anim.play("Idle")
 		
 	else:
-		anim.play("Jump")
-	
+		if $AttackColdown.is_stopped():
+			anim.play("JumpSword")
+		
+		else:
+			anim.play("Jump")
+
+
+#Funcion para disparar
+func act_disparar():
+	if Input.is_action_just_pressed("shoot") and $AttackColdown.is_stopped():
+		$AttackColdown.start()
+		var midisparo = PROYECTIL.instantiate()
+		
+		if ($AnimatedSprite2D.flip_h):
+			midisparo.direccion_proyectil(-1)
+			
+		else:
+			midisparo.direccion_proyectil(1)	
+		
+		get_parent().add_child(midisparo)
+		midisparo.position = $Marker2D.global_position
+
+
+func _on_attack_coldown_timeout():
+	$TextureProgressBar.hide()
