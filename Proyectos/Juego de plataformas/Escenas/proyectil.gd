@@ -18,7 +18,7 @@ func _process(delta):
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+	$Timer.start()
 	
 func direccion_proyectil(dir):
 	dir_proyec = dir
@@ -32,8 +32,17 @@ func _on_body_entered(body):
 		
 		if body.name == "Cangrejo":
 			body.dead()
+			$ImpactoEnemigo.play()
 
+		else:
+			$ImpactoPared.play()
+			
 
+func _on_timer_timeout():
+	queue_free()
 
-func _on_animated_sprite_2d_animation_finished():
+func _on_impacto_enemigo_finished():
+	queue_free()
+
+func _on_impacto_pared_finished():
 	queue_free()

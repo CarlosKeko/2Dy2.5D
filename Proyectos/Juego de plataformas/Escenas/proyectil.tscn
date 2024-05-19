@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://01u8j7ijre5v"]
+[gd_scene load_steps=14 format=3 uid="uid://01u8j7ijre5v"]
 
 [ext_resource type="Script" path="res://Escenas/proyectil.gd" id="1_pqs6v"]
 [ext_resource type="Texture2D" uid="uid://cm4wmgbadu6rk" path="res://Assets/Sword Effects/27-Air Attack 1/Air Attack 1 01.png" id="2_lgh3l"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://d0bogdgrratwn" path="res://Assets/Sword Effects/28-Air Attack 2/Air Attack 2 01.png" id="4_4dswe"]
 [ext_resource type="Texture2D" uid="uid://ctd5d4pxymplk" path="res://Assets/Sword/22-Sword Spinning/Sword Spinning 04.png" id="5_gqfor"]
 [ext_resource type="Texture2D" uid="uid://dbe8qjteb4mer" path="res://Assets/Sword Effects/28-Air Attack 2/Air Attack 2 02.png" id="5_k2sew"]
+[ext_resource type="AudioStream" uid="uid://gjfqytb18kqa" path="res://Audios/sword-sound-2-36274.mp3" id="10_u5x0i"]
+[ext_resource type="AudioStream" uid="uid://b761ddakbx4ox" path="res://Audios/sword-hit-7160.mp3" id="11_e127h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jregx"]
 animations = [{
@@ -16,12 +18,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_lgh3l")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("3_fmo88")
 }],
 "loop": true,
 "name": &"AirAttack",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -32,7 +34,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"AirAttack2",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -49,6 +51,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"Tirar",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"nada",
 "speed": 5.0
 }]
 
@@ -67,6 +74,19 @@ shape = SubResource("CircleShape2D_a8i8o")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[node name="ImpactoEnemigo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_u5x0i")
+
+[node name="ImpactoPared" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_e127h")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="finished" from="ImpactoEnemigo" to="." method="_on_impacto_enemigo_finished"]
+[connection signal="finished" from="ImpactoPared" to="." method="_on_impacto_pared_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

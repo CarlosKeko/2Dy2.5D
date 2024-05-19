@@ -1,0 +1,81 @@
+[gd_scene load_steps=16 format=3 uid="uid://cepm6sqvr40jw"]
+
+[ext_resource type="Script" path="res://Escenas/vida.gd" id="1_u3uoo"]
+[ext_resource type="Texture2D" uid="uid://bex1uy2e8galo" path="res://Assets/Potion Effect/01.png" id="1_wqm5j"]
+[ext_resource type="Texture2D" uid="uid://b8fxhdmek3e4w" path="res://Assets/Potion Effect/02.png" id="2_cc5ot"]
+[ext_resource type="Texture2D" uid="uid://db01d83e6lbdl" path="res://Assets/Potion Effect/03.png" id="3_3vb4j"]
+[ext_resource type="Texture2D" uid="uid://ritn5nn3ypud" path="res://Assets/Potion Effect/04.png" id="4_dbnow"]
+[ext_resource type="Texture2D" uid="uid://bxyc3id1xyw8v" path="res://Assets/Red Potion/01.png" id="5_qsqmx"]
+[ext_resource type="Texture2D" uid="uid://bgtu0k56hpuq3" path="res://Assets/Red Potion/02.png" id="6_npxvr"]
+[ext_resource type="Texture2D" uid="uid://c3cfaqxwntavs" path="res://Assets/Red Potion/03.png" id="7_l2jmy"]
+[ext_resource type="Texture2D" uid="uid://enrktq1500gw" path="res://Assets/Red Potion/04.png" id="8_oc66t"]
+[ext_resource type="Texture2D" uid="uid://nlemi0almhlp" path="res://Assets/Red Potion/05.png" id="9_8q7st"]
+[ext_resource type="Texture2D" uid="uid://cj28cnbdxm8uu" path="res://Assets/Red Potion/06.png" id="10_gmgeo"]
+[ext_resource type="Texture2D" uid="uid://bvl5ifh0em1w" path="res://Assets/Red Potion/07.png" id="11_iitno"]
+[ext_resource type="AudioStream" uid="uid://dtuqg4v0g7fnn" path="res://Audios/3-down-fast-1-106142.mp3" id="13_imhnp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jpdp4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wqm5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cc5ot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3vb4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dbnow")
+}],
+"loop": false,
+"name": &"efecto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qsqmx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_npxvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l2jmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_oc66t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8q7st")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gmgeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iitno")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41hje"]
+radius = 5.0
+
+[node name="Vida" type="Area2D"]
+script = ExtResource("1_u3uoo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jpdp4")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_41hje")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_imhnp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

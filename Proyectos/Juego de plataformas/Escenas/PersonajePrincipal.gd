@@ -7,6 +7,9 @@ const PROYECTIL = preload("res://Escenas/proyectil.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") 
+var death : bool = false
+
+@export var gui : CanvasLayer
 
 func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
@@ -74,6 +77,7 @@ func act_animacio(direction:int):
 func act_disparar():
 	if Input.is_action_just_pressed("shoot") and $AttackColdown.is_stopped():
 		$AttackColdown.start()
+		$Disparar.play()
 		var midisparo = PROYECTIL.instantiate()
 		
 		if ($AnimatedSprite2D.flip_h):
@@ -88,3 +92,31 @@ func act_disparar():
 
 func _on_attack_coldown_timeout():
 	$TextureProgressBar.hide()
+	
+func death_ctrl():
+	velocity.x = 0
+	velocity.y += gravity
+	move_and_slide()
+
+func damage_ctrl():
+	Global.life -= 1
+	
+	if Global.life <= 0:
+		death = true
+		$AnimatedSprite2D.play("Death") 
+	
+	else:
+		$AnimatedSprite2D.play("Hit")
+		$Hit.play()
+		
+
+func _on_hit_point_body_entered(body):
+	if body.name == "Cangrejo" and velocity.y >= 0:
+		$Aplastar.play()
+		body.damage_ctrl(1)
+		velocity.y = -JUMP_VELOCITY * 0.75
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if $AnimatedSprite2D.animation == "Death":
+		gui.game_over()

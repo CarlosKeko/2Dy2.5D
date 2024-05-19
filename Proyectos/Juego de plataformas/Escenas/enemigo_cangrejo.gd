@@ -42,9 +42,17 @@ func dead():
 	is_dead = true
 	velocity = Vector2(0, 0)
 	$AnimatedSprite2D.play("Dead")
-	$CollisionShape2D.set_deferred("disabled", true)
+	$Collision.set_deferred("disabled", true)
 	$DesaparicionEnemigo.start()
 
 
 func _on_desaparicion_enemigo_timeout():
 	queue_free()
+
+func damage_ctrl(damage):
+	dead()
+
+
+func _on_area_2d_body_entered(body):
+	if body.name == "PersonajePrincipal" and !is_dead:
+		body.damage_ctrl()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bun5h3t7v88gw"]
+[gd_scene load_steps=24 format=3 uid="uid://bun5h3t7v88gw"]
 
 [ext_resource type="Script" path="res://Escenas/enemigo_cangrejo.gd" id="1_xgaih"]
 [ext_resource type="Texture2D" uid="uid://ewkfdwpwimlp" path="res://Assets/Crabby/09-Dead Hit/Dead Hit 01.png" id="2_64wic"]
@@ -96,18 +96,36 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xp5d"]
+size = Vector2(4, 8)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_vh560"]
+radius = 11.0
 
 [node name="Cangrejo" type="CharacterBody2D"]
 script = ExtResource("1_xgaih")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ldobn")
-animation = &"Dead"
-frame = 1
-frame_progress = 0.651338
+animation = &"Idle"
+flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(10, 13)
+target_position = Vector2(0, 5)
+hit_from_inside = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-13, -2)
+shape = SubResource("RectangleShape2D_7xp5d")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(13, -2)
+shape = SubResource("RectangleShape2D_7xp5d")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_vh560")
 
@@ -115,4 +133,5 @@ shape = SubResource("CircleShape2D_vh560")
 wait_time = 1.5
 one_shot = true
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="DesaparicionEnemigo" to="." method="_on_desaparicion_enemigo_timeout"]
