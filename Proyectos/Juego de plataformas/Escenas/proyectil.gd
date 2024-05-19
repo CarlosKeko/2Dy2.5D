@@ -30,7 +30,7 @@ func _on_body_entered(body):
 		proyectilMuerto = true
 		$AnimatedSprite2D.play("AirAttack2")
 		
-		if body.name == "Cangrejo":
+		if body is CharacterBody2D:
 			body.dead()
 			$ImpactoEnemigo.play()
 

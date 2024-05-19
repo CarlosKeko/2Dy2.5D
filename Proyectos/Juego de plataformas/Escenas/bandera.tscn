@@ -1,0 +1,78 @@
+[gd_scene load_steps=16 format=3 uid="uid://c1wxmys1wrrc4"]
+
+[ext_resource type="Script" path="res://Escenas/bandera.gd" id="1_vnu16"]
+[ext_resource type="Texture2D" uid="uid://vt30srn3wpo6" path="res://Assets/Flag/Flag 01.png" id="2_4on2q"]
+[ext_resource type="Texture2D" uid="uid://ksdwogm1cw43" path="res://Assets/Flag/Flag 02.png" id="3_0skdf"]
+[ext_resource type="Texture2D" uid="uid://ctxckama7yx1d" path="res://Assets/Flag/Flag 03.png" id="4_8s1ky"]
+[ext_resource type="Texture2D" uid="uid://dlktlorkowy2f" path="res://Assets/Flag/Flag 04.png" id="5_2oh4g"]
+[ext_resource type="Texture2D" uid="uid://cxau145fgx8ew" path="res://Assets/Flag/Flag 05.png" id="6_86fvb"]
+[ext_resource type="Texture2D" uid="uid://cfqhcfpvjohrx" path="res://Assets/Flag/Flag 06.png" id="7_18wdh"]
+[ext_resource type="Texture2D" uid="uid://c1yuvgaw4u5di" path="res://Assets/Flag/Flag 07.png" id="8_ijvth"]
+[ext_resource type="Texture2D" uid="uid://bt7xw3yonl5mv" path="res://Assets/Flag/Flag 08.png" id="9_hw2v5"]
+[ext_resource type="Texture2D" uid="uid://cf4v4352edai2" path="res://Assets/Flag/Flag 09.png" id="10_fkjqd"]
+[ext_resource type="Texture2D" uid="uid://d0i3c5qmx48a0" path="res://Assets/Flag/Platform.png" id="11_q7ycu"]
+[ext_resource type="AudioStream" uid="uid://b6ssul20fw07f" path="res://Audios/level-passed-143039.mp3" id="11_wgdp2"]
+[ext_resource type="PackedScene" uid="uid://b2u2pngk3tqhr" path="res://Escenas/cambio_nivel.tscn" id="13_fi6ck"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4qu5j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4on2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0skdf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8s1ky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2oh4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_86fvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_18wdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ijvth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hw2v5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fkjqd")
+}],
+"loop": true,
+"name": &"Bandera",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qio4"]
+size = Vector2(45, 97)
+
+[node name="Bandera" type="Area2D" node_paths=PackedStringArray("gui")]
+script = ExtResource("1_vnu16")
+gui = NodePath("CambioNivel")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4qu5j")
+animation = &"Bandera"
+autoplay = "Bandera"
+frame_progress = 0.788747
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.5, -2.5)
+shape = SubResource("RectangleShape2D_2qio4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_wgdp2")
+
+[node name="Platform" type="Sprite2D" parent="."]
+position = Vector2(-15, 41)
+texture = ExtResource("11_q7ycu")
+
+[node name="CambioNivel" parent="." instance=ExtResource("13_fi6ck")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

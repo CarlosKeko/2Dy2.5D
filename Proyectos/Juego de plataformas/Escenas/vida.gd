@@ -8,5 +8,5 @@ func _on_body_entered(body):
 		$CollisionShape2D.set_deferred("disabled", true)
 
 func _on_sonido_finished():
-	queue_free()
 	$AnimatedSprite2D.stop()
+	queue_free()

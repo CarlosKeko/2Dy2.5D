@@ -119,9 +119,14 @@ func damage_ctrl():
 			$Hit.play()
 			enImpacto = true
 			
+func instant_death():
+	Global.life -= Global.life
+	$Hit.play()
+	$AnimatedSprite2D.play("Death")
+	death = true
 
 func _on_hit_point_body_entered(body):
-	if body.name == "Cangrejo" and velocity.y >= 0:
+	if body is CharacterBody2D and velocity.y >= 0:
 		$Aplastar.play()
 		body.damage_ctrl(1)
 		velocity.y = JUMP_VELOCITY * 0.75
@@ -140,3 +145,6 @@ func _on_invulnerabilidad_timeout():
 	
 func pinchado():
 	velocity.y = JUMP_VELOCITY * 0.75
+	
+func salta(potencia):
+	velocity.y = JUMP_VELOCITY * potencia

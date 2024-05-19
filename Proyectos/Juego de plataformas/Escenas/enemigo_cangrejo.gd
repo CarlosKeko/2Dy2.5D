@@ -7,9 +7,10 @@ const WALL_TIMER = 0.2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var direction = 1 #Dirección en la que va el enemigo
+@export var direction = 1 #Dirección en la que va el enemigo
 var wall_time = 0
 var is_dead = false
+var cofreEscena := preload("res://Escenas/cofre.tscn")
 
 func _physics_process(delta):
 	if !is_dead:
@@ -48,6 +49,7 @@ func dead():
 
 func _on_desaparicion_enemigo_timeout():
 	queue_free()
+
 
 func damage_ctrl(damage):
 	dead()

@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2u2pngk3tqhr"]
+
+[ext_resource type="Script" path="res://Escenas/cambio_nivel.gd" id="1_1jwhi"]
+[ext_resource type="FontFile" uid="uid://dexnk1odcshvt" path="res://Assets/ThaleahFat.ttf" id="2_aumdu"]
+[ext_resource type="AudioStream" uid="uid://b6ssul20fw07f" path="res://Audios/level-passed-143039.mp3" id="2_nejim"]
+
+[sub_resource type="Theme" id="Theme_etnhg"]
+default_font = ExtResource("2_aumdu")
+
+[sub_resource type="Theme" id="Theme_706qd"]
+
+[node name="CambioNivel" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_1jwhi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_etnhg")
+color = Color(1, 1, 0.803922, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+theme = SubResource("Theme_706qd")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "NIVEL SUPERADO!!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SiguienteNivel" type="Button" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SIGUIENTE NIVEL"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 27.0
+offset_right = -76.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Puntuacion" type="Label" parent="ColorRect/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "SCORE ACTUAL"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 0
+offset_left = 531.0
+offset_top = 354.0
+offset_right = 615.0
+offset_bottom = 394.0
+
+[node name="Label" type="Label" parent="ColorRect/HBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "¡PRESS ENTER!"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_nejim")
+
+[connection signal="pressed" from="ColorRect/HBoxContainer/SiguienteNivel" to="." method="_on_siguiente_nivel_pressed"]

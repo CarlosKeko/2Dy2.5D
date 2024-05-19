@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://dkhd5f2a5qcqj"]
+
+[ext_resource type="Script" path="res://Escenas/cofre.gd" id="1_tny0c"]
+[ext_resource type="Texture2D" uid="uid://df7unvpyp0wpv" path="res://Assets/Chest/Chest Close 01.png" id="2_3a27p"]
+[ext_resource type="Texture2D" uid="uid://c21bi5x3c20n8" path="res://Assets/Chest/Chest Close 02.png" id="3_3w54o"]
+[ext_resource type="Texture2D" uid="uid://2u83ocaami2g" path="res://Assets/Chest/Chest Open 03.png" id="6_6vmdg"]
+[ext_resource type="Texture2D" uid="uid://o1tgs5y52pi5" path="res://Assets/Chest/Chest Open 04.png" id="7_ltsau"]
+[ext_resource type="Texture2D" uid="uid://baltq54nnbsct" path="res://Assets/Chest/Chest Open 05.png" id="8_4vgth"]
+[ext_resource type="Texture2D" uid="uid://c2fo4halg1fon" path="res://Assets/Chest/Chest Open 06.png" id="9_lpyvx"]
+[ext_resource type="Texture2D" uid="uid://c7nambyx7veou" path="res://Assets/Chest/Chest Open 07.png" id="10_85sji"]
+[ext_resource type="AudioStream" uid="uid://de17rnenqdku4" path="res://Audios/short-success-sound-glockenspiel-treasure-video-game-6346.mp3" id="11_buyh4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ymiyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3a27p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3w54o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6vmdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ltsau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4vgth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lpyvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_85sji")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02bsb"]
+size = Vector2(28, 23)
+
+[node name="Cofre" type="Area2D"]
+script = ExtResource("1_tny0c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ymiyf")
+animation = &"open"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4.5)
+shape = SubResource("RectangleShape2D_02bsb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_buyh4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

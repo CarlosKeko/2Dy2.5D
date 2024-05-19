@@ -13,13 +13,13 @@ func game_over():
 	tween.tween_property($ColorRect, "modulate", Color(1, 1, 1, 0.8), 1.0)
 	
 	$ColorRect/AudioStreamPlayer2D.play()
-	
+
 
 
 func _on_restart_pressed():
+	Global.life = 3
+	Global.score = 0
 	get_tree().reload_current_scene()
-	
-
 
 
 func _on_exit_pressed():
