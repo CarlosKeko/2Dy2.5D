@@ -111,7 +111,7 @@ animation = &"Idle"
 flip_h = true
 
 [node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
-position = Vector2(10, 13)
+position = Vector2(12, 6)
 target_position = Vector2(0, 5)
 hit_from_inside = true
 

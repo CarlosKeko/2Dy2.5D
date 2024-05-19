@@ -27,7 +27,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = false
 			
 		#Detectar cambio de direccion enemigo
-		if is_on_wall() and wall_time >= WALL_TIMER:
+		if is_on_wall() and wall_time >= WALL_TIMER or $AnimatedSprite2D/RayCast2D.is_colliding() and wall_time >= WALL_TIMER:
 			direction = direction * -1	
 			wall_time = 0
 			

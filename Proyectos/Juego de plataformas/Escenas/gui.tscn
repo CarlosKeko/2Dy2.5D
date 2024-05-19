@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4trm638tydif"]
+[gd_scene load_steps=9 format=3 uid="uid://b4trm638tydif"]
 
 [ext_resource type="FontFile" uid="uid://dexnk1odcshvt" path="res://Assets/ThaleahFat.ttf" id="1_6nru2"]
 [ext_resource type="Script" path="res://Escenas/gui.gd" id="1_rx0r0"]
+[ext_resource type="Texture2D" uid="uid://c6qvvi87dcrin" path="res://Assets/3 Cell hearts no border/3 Cell hearts no border full (1).png" id="3_2c6nq"]
 
 [sub_resource type="Theme" id="Theme_lg50t"]
 default_font = ExtResource("1_6nru2")
+
+[sub_resource type="Theme" id="Theme_h1n5n"]
+default_font = ExtResource("1_6nru2")
+
+[sub_resource type="Theme" id="Theme_snfd4"]
+
+[sub_resource type="Theme" id="Theme_duc01"]
+
+[sub_resource type="Theme" id="Theme_2jwaa"]
 
 [node name="GUI" type="CanvasLayer"]
 process_mode = 3
@@ -24,32 +34,72 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "SCORE: 0"
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+max_value = 3.0
+value = 3.0
+texture_progress = ExtResource("3_2c6nq")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_right = 1151.0
 offset_bottom = 649.0
-color = Color(0.590252, 0.430429, 0.143009, 1)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = SubResource("Theme_h1n5n")
+color = Color(0.831373, 0, 0, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -22.5
+offset_right = 111.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Restart" type="Button" parent="ColorRect/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = SubResource("Theme_snfd4")
+theme_override_font_sizes/font_size = 40
+text = "RESTART"
+
+[node name="Exit" type="Button" parent="ColorRect/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = SubResource("Theme_duc01")
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 120.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
-text = "Game Over"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Restart" type="Button" parent="ColorRect/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Exit" type="Button" parent="ColorRect/HBoxContainer/HBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+theme = SubResource("Theme_2jwaa")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ColorRect"]
 
-[connection signal="pressed" from="ColorRect/HBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="ColorRect/HBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer2/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer2/Exit" to="." method="_on_exit_pressed"]

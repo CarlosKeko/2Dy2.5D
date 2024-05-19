@@ -229,7 +229,7 @@ script = ExtResource("1_ixppt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -9)
 sprite_frames = SubResource("SpriteFrames_1m081")
-animation = &"IdleSword"
+animation = &"Hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -11)
@@ -271,11 +271,6 @@ stream = ExtResource("44_c04e8")
 [node name="Disparar" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("45_xqgei")
 
-[node name="Invulnerabilidad" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="AttackColdown" to="." method="_on_attack_coldown_timeout"]
 [connection signal="body_entered" from="HitPoint" to="." method="_on_hit_point_body_entered"]
-[connection signal="timeout" from="Invulnerabilidad" to="." method="_on_invulnerabilidad_timeout"]
