@@ -8,7 +8,7 @@ const ESC_TERCERNIVEL:= preload("res://Escenas/tercer_nivel.tscn")
 
 var score = 0
 var life = 3
-var nivelActual = 0
+var nivelActual = 1
 
 # metodes globals
 func g_canvi_escena(nomEscenaAnar):

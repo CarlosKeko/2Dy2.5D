@@ -1,3 +1,58 @@
-[gd_scene format=3 uid="uid://w2tilr1407ja"]
+[gd_scene load_steps=4 format=3 uid="uid://w2tilr1407ja"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="FontFile" uid="uid://dexnk1odcshvt" path="res://Assets/ThaleahFat.ttf" id="1_anee8"]
+[ext_resource type="Script" path="res://Escenas/tutorial.gd" id="1_mhcfu"]
+
+[sub_resource type="Theme" id="Theme_6xmpx"]
+default_font = ExtResource("1_anee8")
+
+[node name="Tutorial" type="CanvasLayer"]
+script = ExtResource("1_mhcfu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_6xmpx")
+color = Color(1, 0.818755, 0.990151, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "A - Moverse a la IZQUIERDA
+D - Moverse a la DERECHA
+Espacio - Saltar
+Click izquierdo - Disparar
+Enter - En el menu para elegir tu opcion"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Volver" type="Button" parent="ColorRect/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+text = "Volver"
+
+[connection signal="pressed" from="ColorRect/HBoxContainer2/Volver" to="." method="_on_volver_pressed"]

@@ -23,4 +23,4 @@ func _on_restart_pressed():
 
 
 func _on_exit_pressed():
-	get_tree().quit()
+	Global.g_canvi_escena("Menu")

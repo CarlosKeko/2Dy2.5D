@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 func cambio_nivel():
-	Global.nivelActual += 1
 	get_tree().paused = true
 	if Global.nivelActual >= 3:
 		$ColorRect/HBoxContainer2/Label.text = "¡FELICIDADES HAS COMPLETADO EL JUEGO!"
@@ -28,6 +27,7 @@ func _on_siguiente_nivel_pressed():
 		
 	elif Global.nivelActual == 2:
 		Global.g_canvi_escena("TercerNivel")
+		Global.nivelActual += 1
 		
 	elif Global.nivelActual >= 3:
 		Global.nivelActual = 1
