@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddex7a0706xe8"]
+[gd_scene load_steps=14 format=3 uid="uid://ddex7a0706xe8"]
 
 [ext_resource type="TileSet" uid="uid://c53h8r42a8qt1" path="res://primer_nivel.tres" id="1_ouwrc"]
 [ext_resource type="PackedScene" uid="uid://bwlgfyvig5qtb" path="res://Escenas/personaje_principal.tscn" id="2_h7u4l"]
 [ext_resource type="Script" path="res://Escenas/primer_nivel.gd" id="3_xfwek"]
 [ext_resource type="PackedScene" uid="uid://bfxjsnve7hnt3" path="res://Escenas/background.tscn" id="5_u7x1k"]
 [ext_resource type="PackedScene" uid="uid://bun5h3t7v88gw" path="res://Escenas/enemigo_cangrejo.tscn" id="6_0sk3t"]
-[ext_resource type="PackedScene" uid="uid://cvyjqlnvjeiqx" path="res://Escenas/plataforma_movil.tscn" id="7_xj3u2"]
 [ext_resource type="PackedScene" uid="uid://66r5pyfifwqr" path="res://Escenas/moneda.tscn" id="8_0nhhy"]
 [ext_resource type="PackedScene" uid="uid://b4trm638tydif" path="res://Escenas/gui.tscn" id="9_d7rap"]
 [ext_resource type="PackedScene" uid="uid://cepm6sqvr40jw" path="res://Escenas/vida.tscn" id="10_u7qa1"]
@@ -16,12 +15,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dp1o"]
 size = Vector2(1204, 49)
-
-[sub_resource type="Curve2D" id="Curve2D_36i1a"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 158, 1)
-}
-point_count = 2
 
 [node name="PrimerNivel" type="TileMap"]
 tile_set = ExtResource("1_ouwrc")
@@ -78,13 +71,6 @@ position = Vector2(366, 561)
 
 [node name="Cangrejo4" parent="Enemigos" instance=ExtResource("6_0sk3t")]
 position = Vector2(887, 560)
-
-[node name="Plataformas" type="Node" parent="."]
-
-[node name="Plataforma" parent="Plataformas" instance=ExtResource("7_xj3u2")]
-position = Vector2(670, 428)
-curve = SubResource("Curve2D_36i1a")
-loop = false
 
 [node name="Trampas" type="Node" parent="."]
 

@@ -31,7 +31,7 @@ func _on_body_entered(body):
 		$AnimatedSprite2D.play("AirAttack2")
 		
 		if body is CharacterBody2D:
-			body.dead()
+			body.damage_ctrl(1)
 			$ImpactoEnemigo.play()
 
 		else:

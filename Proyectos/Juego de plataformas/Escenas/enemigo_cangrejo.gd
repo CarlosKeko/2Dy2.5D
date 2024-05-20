@@ -40,6 +40,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func dead():
+	Global.score += 50
 	is_dead = true
 	velocity = Vector2(0, 0)
 	$AnimatedSprite2D.play("Dead")

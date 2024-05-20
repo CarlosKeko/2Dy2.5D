@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1wxmys1wrrc4"]
+[gd_scene load_steps=17 format=3 uid="uid://c1wxmys1wrrc4"]
 
 [ext_resource type="Script" path="res://Escenas/bandera.gd" id="1_vnu16"]
 [ext_resource type="Texture2D" uid="uid://vt30srn3wpo6" path="res://Assets/Flag/Flag 01.png" id="2_4on2q"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d0i3c5qmx48a0" path="res://Assets/Flag/Platform.png" id="11_q7ycu"]
 [ext_resource type="AudioStream" uid="uid://b6ssul20fw07f" path="res://Audios/level-passed-143039.mp3" id="11_wgdp2"]
 [ext_resource type="PackedScene" uid="uid://b2u2pngk3tqhr" path="res://Escenas/cambio_nivel.tscn" id="13_fi6ck"]
+[ext_resource type="PackedScene" uid="uid://d7cefmpt3mad" path="res://Escenas/final.tscn" id="14_0x8gk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4qu5j"]
 animations = [{
@@ -52,9 +53,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2qio4"]
 size = Vector2(45, 97)
 
-[node name="Bandera" type="Area2D" node_paths=PackedStringArray("gui")]
+[node name="Bandera" type="Area2D" node_paths=PackedStringArray("gui", "guiFinal")]
 script = ExtResource("1_vnu16")
 gui = NodePath("CambioNivel")
+guiFinal = NodePath("Final")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4qu5j")
@@ -74,5 +76,7 @@ position = Vector2(-15, 41)
 texture = ExtResource("11_q7ycu")
 
 [node name="CambioNivel" parent="." instance=ExtResource("13_fi6ck")]
+
+[node name="Final" parent="." instance=ExtResource("14_0x8gk")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://d7cefmpt3mad"]
+
+[ext_resource type="FontFile" uid="uid://dexnk1odcshvt" path="res://Assets/ThaleahFat.ttf" id="1_7coae"]
+[ext_resource type="Script" path="res://Escenas/final.gd" id="1_pg0dj"]
+[ext_resource type="AudioStream" uid="uid://bw8c2rhua7rw0" path="res://Audios/success-fanfare-trumpets-6185.mp3" id="3_djvoh"]
+
+[sub_resource type="Theme" id="Theme_0sn0u"]
+default_font = ExtResource("1_7coae")
+
+[node name="Final" type="CanvasLayer"]
+script = ExtResource("1_pg0dj")
+
+[node name="Colorete" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0sn0u")
+color = Color(0.907178, 0.838876, 0.999999, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Colorete"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 222.0
+offset_top = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Colorete/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "¡FELICIDADES HAS COMPLETADO EL JUEGO!"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Colorete"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Colorete/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 30
+text = "HAS TERMINADO CON UNA PUNTUACIÓN DE: "
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Colorete"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menuPrincipal" type="Button" parent="Colorete/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 20
+text = "Menu principal"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_djvoh")
+
+[connection signal="pressed" from="Colorete/HBoxContainer3/menuPrincipal" to="." method="_on_menu_principal_pressed"]

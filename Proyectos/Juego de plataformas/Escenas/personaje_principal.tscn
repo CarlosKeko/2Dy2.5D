@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bwlgfyvig5qtb"]
+[gd_scene load_steps=51 format=3 uid="uid://bwlgfyvig5qtb"]
 
 [ext_resource type="Script" path="res://Escenas/PersonajePrincipal.gd" id="1_ixppt"]
 [ext_resource type="Texture2D" uid="uid://dq7xvj6m2pv7h" path="res://Assets/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_25bfh"]
@@ -46,6 +46,7 @@
 [ext_resource type="AudioStream" uid="uid://cfucywq5xgdy5" path="res://Audios/punch-2-123106.mp3" id="44_c04e8"]
 [ext_resource type="AudioStream" uid="uid://dd5ovgy7ctp0q" path="res://Audios/swing-whoosh-weapon-4-189820.mp3" id="45_xqgei"]
 [ext_resource type="PackedScene" uid="uid://b4trm638tydif" path="res://Escenas/gui.tscn" id="46_nsige"]
+[ext_resource type="PackedScene" uid="uid://d7cefmpt3mad" path="res://Escenas/final.tscn" id="47_qarv6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1m081"]
 animations = [{
@@ -224,9 +225,10 @@ height = 26.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21egp"]
 size = Vector2(20, 5)
 
-[node name="PersonajePrincipal" type="CharacterBody2D" node_paths=PackedStringArray("gui")]
+[node name="PersonajePrincipal" type="CharacterBody2D" node_paths=PackedStringArray("gui", "finalGui")]
 script = ExtResource("1_ixppt")
 gui = NodePath("GUI")
+finalGui = NodePath("Final")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -9)
@@ -278,6 +280,8 @@ wait_time = 0.5
 one_shot = true
 
 [node name="GUI" parent="." instance=ExtResource("46_nsige")]
+
+[node name="Final" parent="." instance=ExtResource("47_qarv6")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="AttackColdown" to="." method="_on_attack_coldown_timeout"]

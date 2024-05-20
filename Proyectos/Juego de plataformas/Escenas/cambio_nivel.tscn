@@ -3,11 +3,10 @@
 [ext_resource type="Script" path="res://Escenas/cambio_nivel.gd" id="1_1jwhi"]
 [ext_resource type="FontFile" uid="uid://dexnk1odcshvt" path="res://Assets/ThaleahFat.ttf" id="2_aumdu"]
 [ext_resource type="AudioStream" uid="uid://b6ssul20fw07f" path="res://Audios/level-passed-143039.mp3" id="2_nejim"]
+[ext_resource type="AudioStream" uid="uid://bw8c2rhua7rw0" path="res://Audios/success-fanfare-trumpets-6185.mp3" id="4_q2mjn"]
 
 [sub_resource type="Theme" id="Theme_etnhg"]
 default_font = ExtResource("2_aumdu")
-
-[sub_resource type="Theme" id="Theme_706qd"]
 
 [node name="CambioNivel" type="CanvasLayer"]
 process_mode = 3
@@ -36,7 +35,6 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
-theme = SubResource("Theme_706qd")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "NIVEL SUPERADO!!"
@@ -90,5 +88,8 @@ text = "¡PRESS ENTER!"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_nejim")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_q2mjn")
 
 [connection signal="pressed" from="ColorRect/HBoxContainer/SiguienteNivel" to="." method="_on_siguiente_nivel_pressed"]

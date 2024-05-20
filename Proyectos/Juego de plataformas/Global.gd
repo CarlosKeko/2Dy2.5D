@@ -8,12 +8,12 @@ const ESC_TERCERNIVEL:= preload("res://Escenas/tercer_nivel.tscn")
 
 var score = 0
 var life = 3
-var nivelActual = 1
+var nivelActual = 0
 
 # metodes globals
 func g_canvi_escena(nomEscenaAnar):
 	if (nomEscenaAnar == "PrimerNivel"):
-		get_tree().change_scene_to_packed(ESC_SEGUNDONIVEL)
+		get_tree().change_scene_to_packed(ESC_PRIMERNIVEL)
 		
 	elif (nomEscenaAnar == "Menu"):
 		get_tree().change_scene_to_packed(ESC_INICI)

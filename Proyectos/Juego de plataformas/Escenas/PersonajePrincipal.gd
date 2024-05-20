@@ -12,6 +12,7 @@ var enImpacto : bool = false
 var estadoInvulnerable : bool = false
 
 @export var gui : CanvasLayer
+@export var finalGui : CanvasLayer
 
 func _physics_process(delta):
 	if !death:
