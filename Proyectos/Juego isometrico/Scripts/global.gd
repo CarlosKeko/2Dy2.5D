@@ -1,11 +1,10 @@
 extends Node
 
+const ESC_PRIMERNIVEL := preload("res://Scenes/primer_nivel.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+#Metodos globales
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+# Metodo para cambiar de escena
+func g_canvi_escena(nomEscenaAnar):
+	if (nomEscenaAnar == "PrimerNivel"):
+		get_tree().change_scene_to_packed(ESC_PRIMERNIVEL)
