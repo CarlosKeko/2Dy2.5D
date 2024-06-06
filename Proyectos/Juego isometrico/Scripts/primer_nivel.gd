@@ -1,5 +1,9 @@
-extends TileMap
+class_name mapa extends TileMap
 
+
+@export var TILE_SCENES: Dictionary = {
+	1: preload("res://Scenes/towers.tscn")
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,5 +19,6 @@ func _process(delta):
 		ponerTorre(idCela, tile_mouse_pos)
 		
 func ponerTorre(idCela, tile_mouse_pos):
-	if idCela == 17:
-		set_cell(1, tile_mouse_pos, 22, Vector2i(0, 0))
+	if idCela == Global.LUGARLIBRE:
+		set_cell(1, tile_mouse_pos, 5, Vector2i(0, 0))
+
