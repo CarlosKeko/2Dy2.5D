@@ -1,9 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3kd6carax4vg"]
+[gd_scene load_steps=38 format=3 uid="uid://c3kd6carax4vg"]
 
 [ext_resource type="Texture2D" uid="uid://ocfp5v8jeft7" path="res://Assets/Road tiles/Winter biome/road_winter(1).png" id="1_sb6ft"]
 [ext_resource type="Texture2D" uid="uid://ckpv45o7kjrfn" path="res://Assets/Road tiles/Winter biome/road_winter(3).png" id="2_jeeyt"]
 [ext_resource type="Texture2D" uid="uid://dy2sms5kilcfy" path="res://Assets/Landscape tiles/snow.png" id="3_gcp74"]
+[ext_resource type="Texture2D" uid="uid://vlpknrb67fyx" path="res://Assets/Road tiles/Winter biome/road_winter(9).png" id="3_jqo35"]
+[ext_resource type="Texture2D" uid="uid://b7amd54fc881y" path="res://Assets/Enviroument tiles/crystal(1).png" id="4_2q75c"]
 [ext_resource type="Texture2D" uid="uid://cf7n7y70djaj6" path="res://Assets/Enviroument tiles/Winter biome/trees/tree_winter(1).png" id="4_8q3om"]
+[ext_resource type="Texture2D" uid="uid://1al13f6lirb2" path="res://Assets/Enviroument tiles/crystal(2).png" id="5_73ulh"]
+[ext_resource type="Texture2D" uid="uid://cqijnxj4bd246" path="res://Assets/Enviroument tiles/crystal(3).png" id="6_ue4h1"]
+[ext_resource type="Texture2D" uid="uid://cfj5q8vm3ygha" path="res://Assets/Enviroument tiles/Winter biome/trees/tree_winter(2).png" id="7_jhwkl"]
+[ext_resource type="Texture2D" uid="uid://b3v3hmfkhuvlf" path="res://Assets/Landscape tiles/buildingPlaceSnow.png" id="8_8kaca"]
+[ext_resource type="Texture2D" uid="uid://bmrkhmd8j7ppg" path="res://Assets/Enviroument tiles/Winter biome/snow decoration/snow_decoration(7).png" id="9_sgs0s"]
+[ext_resource type="Texture2D" uid="uid://diay1pqls0pef" path="res://Assets/Enviroument tiles/Winter biome/snow decoration/snow_decoration(8).png" id="10_o0t01"]
+[ext_resource type="Texture2D" uid="uid://dwf6882fvul37" path="res://Assets/Enviroument tiles/Winter biome/snow decoration/snow_decoration(1).png" id="12_ldo5r"]
+[ext_resource type="Texture2D" uid="uid://dvjitnpfp0oik" path="res://Assets/Enviroument tiles/Spring biome/stones/stone(1).png" id="13_06qux"]
+[ext_resource type="Texture2D" uid="uid://dpmev7eplp542" path="res://Assets/Road tiles/Winter biome/road_winter(10).png" id="15_cwm2q"]
+[ext_resource type="Texture2D" uid="uid://3u3criva45px" path="res://Assets/Road tiles/Winter biome/road_winter(2).png" id="16_pm5kr"]
+[ext_resource type="Texture2D" uid="uid://cpie7by6yaca4" path="res://Assets/Road tiles/Winter biome/road_winter(11).png" id="17_pb3xu"]
+[ext_resource type="Texture2D" uid="uid://bya5gcdmkgkae" path="res://Assets/Road tiles/Winter biome/road_winter(8).png" id="18_61iob"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8xben"]
 texture = ExtResource("1_sb6ft")
@@ -184,20 +198,104 @@ texture_region_size = Vector2i(251, 235)
 9:13/0 = 0
 10:13/0 = 0
 0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -46)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e4k0e"]
 texture = ExtResource("2_jeeyt")
 texture_region_size = Vector2i(251, 235)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -46)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_elspp"]
+texture = ExtResource("3_jqo35")
+texture_region_size = Vector2i(251, 235)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -46)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ot3vt"]
+texture = ExtResource("4_2q75c")
+texture_region_size = Vector2i(82, 131)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 35)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hkfu0"]
+texture = ExtResource("5_73ulh")
+texture_region_size = Vector2i(112, 131)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(7, 35)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1jnjj"]
+texture = ExtResource("6_ue4h1")
+texture_region_size = Vector2i(121, 143)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 38)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6kim0"]
+texture = ExtResource("7_jhwkl")
+texture_region_size = Vector2i(56, 99)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 21)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4eg6d"]
+texture = ExtResource("8_8kaca")
+texture_region_size = Vector2i(251, 235)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -46)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tl3tu"]
+texture = ExtResource("9_sgs0s")
+texture_region_size = Vector2i(22, 18)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c7cho"]
+texture = ExtResource("10_o0t01")
+texture_region_size = Vector2i(38, 20)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyf71"]
 texture = ExtResource("3_gcp74")
 texture_region_size = Vector2i(251, 235)
 0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -46)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_11oj7"]
+texture = ExtResource("12_ldo5r")
+texture_region_size = Vector2i(38, 22)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xfvk"]
+texture = ExtResource("13_06qux")
+texture_region_size = Vector2i(246, 143)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oxtin"]
 texture = ExtResource("4_8q3om")
-texture_region_size = Vector2i(246, 143)
+texture_region_size = Vector2i(70, 95)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 21)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mju2"]
+texture = ExtResource("15_cwm2q")
+texture_region_size = Vector2i(251, 235)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -46)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kno5"]
+texture = ExtResource("16_pm5kr")
+texture_region_size = Vector2i(251, 235)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -46)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srjsr"]
+texture = ExtResource("17_pb3xu")
+texture_region_size = Vector2i(251, 235)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -46)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8b14"]
+texture = ExtResource("18_61iob")
+texture_region_size = Vector2i(251, 235)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -46)
 
 [sub_resource type="TileSet" id="TileSet_2x3sf"]
 tile_shape = 1
@@ -207,11 +305,29 @@ sources/0 = SubResource("TileSetAtlasSource_8xben")
 sources/1 = SubResource("TileSetAtlasSource_e4k0e")
 sources/2 = SubResource("TileSetAtlasSource_dyf71")
 sources/3 = SubResource("TileSetAtlasSource_oxtin")
+sources/6 = SubResource("TileSetAtlasSource_4mju2")
+sources/7 = SubResource("TileSetAtlasSource_8kno5")
+sources/8 = SubResource("TileSetAtlasSource_srjsr")
+sources/9 = SubResource("TileSetAtlasSource_y8b14")
+sources/10 = SubResource("TileSetAtlasSource_elspp")
+sources/13 = SubResource("TileSetAtlasSource_ot3vt")
+sources/14 = SubResource("TileSetAtlasSource_hkfu0")
+sources/15 = SubResource("TileSetAtlasSource_1jnjj")
+sources/16 = SubResource("TileSetAtlasSource_6kim0")
+sources/17 = SubResource("TileSetAtlasSource_4eg6d")
+sources/18 = SubResource("TileSetAtlasSource_tl3tu")
+sources/19 = SubResource("TileSetAtlasSource_c7cho")
+sources/20 = SubResource("TileSetAtlasSource_11oj7")
+sources/21 = SubResource("TileSetAtlasSource_4xfvk")
 
 [node name="Primer_nivel" type="TileMap"]
 tile_set = SubResource("TileSet_2x3sf")
 format = 2
 layer_0/name = "Suelo"
-layer_0/tile_data = PackedInt32Array(65535, 0, 0, 131071, 0, 0, 0, 0, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, 65536, 0, 0, -1, 0, 0, -65536, 0, 0)
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(-393214, 2, 0, -327678, 2, 0, -262142, 2, 0, -196606, 2, 0, -131070, 2, 0, -65534, 2, 0, 2, 2, 0, 65538, 2, 0, 131074, 2, 0, 196610, 2, 0, 262146, 2, 0, 327682, 2, 0, 393218, 2, 0, -393213, 2, 0, -327677, 2, 0, -262141, 2, 0, -196605, 2, 0, -131069, 2, 0, -65533, 2, 0, 3, 2, 0, 65539, 2, 0, 131075, 2, 0, 196611, 2, 0, 262147, 2, 0, 327683, 2, 0, 393219, 2, 0, -393211, 2, 0, -327675, 2, 0, -262139, 17, 0, -196603, 0, 0, -131067, 2, 0, -65531, 17, 0, 5, 2, 0, 65541, 2, 0, 131077, 17, 0, 262149, 2, 0, 327685, 2, 0, 393221, 2, 0, -393210, 2, 0, -327674, 2, 0, -262138, 2, 0, -196602, 8, 0, -131066, 7, 0, -65530, 7, 0, 6, 7, 0, 65542, 7, 0, 131078, 6, 0, 196614, 2, 0, 262150, 2, 0, 327686, 2, 0, 393222, 2, 0, -393209, 2, 0, -327673, 2, 0, -262137, 2, 0, -196601, 2, 0, -131065, 2, 0, 7, 2, 0, 65543, 17, 0, 131079, 0, 0, 262151, 2, 0, 327687, 2, 0, 393223, 2, 0, -393208, 2, 0, -327672, 2, 0, -262136, 2, 0, -196600, 2, 0, -131064, 17, 0, 8, 7, 0, 65544, 7, 0, 131080, 10, 0, 196616, 17, 0, 262152, 2, 0, 327688, 2, 0, 393224, 2, 0, -393207, 2, 0, -327671, 2, 0, -262135, 2, 0, -196599, 2, 0, -131063, 2, 0, -65527, 0, 0, 9, 17, 0, 131081, 2, 0, 196617, 2, 0, 262153, 2, 0, 327689, 2, 0, 393225, 2, 0, -393206, 2, 0, -327670, 2, 0, -262134, 2, 0, -196598, 2, 0, -131062, 2, 0, -65526, 8, 0, 10, 7, 0, 131082, 2, 0, 196618, 2, 0, 262154, 2, 0, 327690, 2, 0, 393226, 2, 0, -393205, 2, 0, -327669, 2, 0, -262133, 2, 0, -196597, 2, 0, -131061, 2, 0, -65525, 17, 0, 11, 2, 0, 65547, 0, 0, 131083, 17, 0, 196619, 2, 0, 262155, 2, 0, 327691, 2, 0, 393227, 2, 0, -393204, 2, 0, -327668, 2, 0, -262132, 2, 0, -196596, 2, 0, -131060, 2, 0, -65524, 2, 0, 12, 2, 0, 65548, 0, 0, 131084, 2, 0, 196620, 2, 0, 262156, 2, 0, 327692, 2, 0, 393228, 2, 0, -393212, 2, 0, -327676, 2, 0, -262140, 2, 0, -196604, 0, 0, -131068, 2, 0, -65532, 2, 0, 4, 2, 0, 65540, 2, 0, 131076, 2, 0, 196612, 2, 0, 262148, 2, 0, 327684, 2, 0, 393220, 2, 0, 327693, 2, 0, 393229, 2, 0, 327694, 2, 0, 393230, 2, 0, -393203, 2, 0, -327667, 2, 0, -262131, 2, 0, -196595, 2, 0, -131059, 2, 0, -65523, 2, 0, 13, 2, 0, 65549, 0, 0, 131085, 2, 0, 196621, 2, 0, 262157, 2, 0, -393202, 2, 0, -327666, 2, 0, -262130, 2, 0, -196594, 2, 0, -131058, 2, 0, -65522, 2, 0, 14, 2, 0, 131086, 2, 0, 196622, 2, 0, 262158, 2, 0, -393201, 2, 0, -327665, 2, 0, -262129, 2, 0, -196593, 2, 0, -131057, 2, 0, -65521, 2, 0, 15, 2, 0, 65551, 0, 0, 131087, 2, 0, 196623, 2, 0, 262159, 2, 0, 327695, 2, 0, 393231, 2, 0, 65546, 6, 0, 65545, 2, 0, 65550, 0, 0, -65529, 2, 0, -65528, 9, 0, 196613, 2, 0, 196615, 2, 0)
 layer_1/name = "Decoracion"
-layer_1/tile_data = PackedInt32Array()
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 1
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(196613, 3, 0, 196617, 3, 0, -65529, 3, 0, -196600, 3, 0, -262135, 3, 0, 13, 3, 0, -65523, 3, 0, 4, 3, 0, -65533, 3, 0, 131081, 13, 0, 196614, 14, 0, 327688, 13, 0, -65524, 13, 0, -196599, 15, 0, -262138, 14, 0, 3, 15, 0, 262155, 15, 0, 131085, 15, 0, 65545, 16, 0, -327673, 16, 0, -262134, 16, 0, -262133, 14, 0, 131086, 16, 0, 196621, 16, 0, 393225, 16, 0, 327689, 16, 0, 327690, 16, 0, 262153, 19, 0, 262151, 19, 0, 262152, 18, 0, 196615, 20, 0, 131082, 20, 0, 131084, 19, 0, 196619, 20, 0, 11, 18, 0, 12, 20, 0, -131065, 20, 0, -196601, 19, 0, -262136, 18, 0, -327671, 19, 0, -327672, 19, 0, -131067, 19, 0, 65541, 19, 0, 5, 18, 0, -131068, 19, 0, -262140, 20, 0, 7, 18, 0, -131063, 18, 0, -131062, 19, 0, 14, 19, 0)
