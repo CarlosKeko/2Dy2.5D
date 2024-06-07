@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd6eb8bw6op0j"]
+
+[ext_resource type="PackedScene" uid="uid://d2ug2l7nkrmkl" path="res://Scenes/enemy.tscn" id="1_h22tt"]
+
+[sub_resource type="Curve2D" id="Curve2D_xedi4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1848, 1218, 0, 0, 0, 0, 1713, 1137, 0, 0, 0, 0, 1591, 1075, 0, 0, 0, 0, 1461, 997, 0, 0, 0, 0, 1353, 932, 0, 0, 0, 0, 1239, 857, 0, 0, 0, 0, 1349, 789, 0, 0, 0, 0, 1465, 717, 0, 0, 0, 0, 1352, 646, 0, 0, 0, 0, 1235, 577, 0, 0, 0, 0, 1093, 652, 0, 0, 0, 0, 969, 727, 0, 0, 0, 0, 861, 783, 0, 0, 0, 0, 733, 713, 0, 0, 0, 0, 628, 652, 0, 0, 0, 0, 740, 567, 0, 0, 0, 0, 843, 515, 0, 0, 0, 0, 977, 434, 0, 0, 0, 0, 977, 434, 0, 0, 0, 0, 1110, 358, 0, 0, 0, 0, 1220, 291, 0, 0, 0, 0, 1097, 216, 0, 0, 0, 0, 976, 141, 0, 0, 0, 0, 857, 73)
+}
+point_count = 24
+
+[node name="Path2D" type="Path2D"]
+top_level = true
+curve = SubResource("Curve2D_xedi4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+top_level = true
+position = Vector2(1848, 1218)
+rotation = -2.60117
+rotates = false
+loop = false
+
+[node name="Enemy" parent="PathFollow2D" instance=ExtResource("1_h22tt")]
+rotation = 2.59596

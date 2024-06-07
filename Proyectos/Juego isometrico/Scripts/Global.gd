@@ -1,6 +1,6 @@
 extends Node
 
-const TOWERS:= preload("res://Scenes/towers.tscn")
+const TOWERS:= preload("res://Scenes/towerArcher1.tscn")
 const LUGARLIBRE:= 17
 
 # Called when the node enters the scene tree for the first time.

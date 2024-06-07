@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://y3o5kf5pxpe"]
+
+[ext_resource type="Script" path="res://Scripts/flecha.gd" id="1_hmeuq"]
+[ext_resource type="Texture2D" uid="uid://q6juy5b0fcqb" path="res://Assets/Towers/Archer/arrow.png" id="1_otd0p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5d88s"]
+radius = 6.90819
+height = 25.9057
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vmc2"]
+height = 40.0
+
+[node name="Flecha" type="CharacterBody2D"]
+script = ExtResource("1_hmeuq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.15805, 1.15805)
+shape = SubResource("CapsuleShape2D_5d88s")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_5vmc2")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+texture = ExtResource("1_otd0p")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
