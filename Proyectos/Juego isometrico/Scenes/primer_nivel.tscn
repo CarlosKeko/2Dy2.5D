@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c3kd6carax4vg"]
+[gd_scene load_steps=48 format=3 uid="uid://c3kd6carax4vg"]
 
 [ext_resource type="Texture2D" uid="uid://ocfp5v8jeft7" path="res://Assets/Road tiles/Winter biome/road_winter(1).png" id="1_sb6ft"]
 [ext_resource type="Texture2D" uid="uid://ckpv45o7kjrfn" path="res://Assets/Road tiles/Winter biome/road_winter(3).png" id="2_jeeyt"]
@@ -19,9 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://ch3cttlmx0csj" path="res://Scenes/towerArcher1.tscn" id="16_m7qb8"]
 [ext_resource type="Texture2D" uid="uid://3u3criva45px" path="res://Assets/Road tiles/Winter biome/road_winter(2).png" id="16_pm5kr"]
 [ext_resource type="Texture2D" uid="uid://cpie7by6yaca4" path="res://Assets/Road tiles/Winter biome/road_winter(11).png" id="17_pb3xu"]
+[ext_resource type="Texture2D" uid="uid://cnpvq8eu2j2u0" path="res://Assets/Towers/Wizard/wizard_level_1.png" id="17_ufmnb"]
 [ext_resource type="Texture2D" uid="uid://bya5gcdmkgkae" path="res://Assets/Road tiles/Winter biome/road_winter(8).png" id="18_61iob"]
 [ext_resource type="Script" path="res://Scripts/primer_nivel.gd" id="19_bljcf"]
 [ext_resource type="Script" path="res://Scripts/PathSpawner.gd" id="22_xnnj4"]
+[ext_resource type="PackedScene" uid="uid://dhg7bikrah1uc" path="res://Scenes/panelArqueros1.tscn" id="23_x5vhv"]
+[ext_resource type="PackedScene" uid="uid://c1hxvecqjikh7" path="res://Scenes/panelWizard1.tscn" id="24_3jxol"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8xben"]
 texture = ExtResource("1_sb6ft")
@@ -664,6 +667,17 @@ texture_region_size = Vector2i(70, 95)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3asby"]
 scenes/1/scene = ExtResource("16_m7qb8")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bftqn"]
+texture = ExtResource("17_ufmnb")
+texture_region_size = Vector2i(150, 126)
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-3, 26)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mju2"]
 texture = ExtResource("15_cwm2q")
 texture_region_size = Vector2i(251, 235)
@@ -722,6 +736,7 @@ sources/20 = SubResource("TileSetAtlasSource_11oj7")
 sources/21 = SubResource("TileSetAtlasSource_4xfvk")
 sources/22 = SubResource("TileSetAtlasSource_u7h1i")
 sources/4 = SubResource("TileSetScenesCollectionSource_3asby")
+sources/5 = SubResource("TileSetAtlasSource_bftqn")
 
 [node name="Primer_nivel" type="TileMap"]
 y_sort_enabled = true
@@ -750,8 +765,49 @@ autostart = true
 
 [node name="Towers" type="Node2D" parent="."]
 top_level = true
+position = Vector2(5, -7)
 
-[node name="Tower" parent="Towers" instance=ExtResource("16_m7qb8")]
-position = Vector2(1228.64, 687.245)
+[node name="Interfaz" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="Interfaz"]
+offset_left = 979.0
+offset_top = 3.0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="FlowContainer" type="FlowContainer" parent="Interfaz/Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 66.0
+offset_bottom = 217.0
+scale = Vector2(3, 3)
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 10
+
+[node name="PanelArcher1" parent="Interfaz/Panel/FlowContainer" instance=ExtResource("23_x5vhv")]
+layout_mode = 2
+
+[node name="PanelWizard1" parent="Interfaz/Panel/FlowContainer" instance=ExtResource("24_3jxol")]
+layout_mode = 2
+
+[node name="Mejorar" type="Button" parent="Interfaz/Panel"]
+layout_mode = 2
+offset_left = 36.0
+offset_top = 164.0
+offset_right = 136.0
+offset_bottom = 264.0
+text = "Mejorar"
+
+[node name="Vender" type="Button" parent="Interfaz/Panel"]
+layout_mode = 2
+offset_left = 36.0
+offset_top = 295.0
+offset_right = 136.0
+offset_bottom = 395.0
+text = "Vender
+"
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
+[connection signal="gui_input" from="Interfaz/Panel/FlowContainer/PanelArcher1" to="." method="_on_panel_archer_1_gui_input"]
+[connection signal="gui_input" from="Interfaz/Panel/FlowContainer/PanelWizard1" to="." method="_on_panel_wizard_1_gui_input"]

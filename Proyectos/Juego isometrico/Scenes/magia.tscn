@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cibajppro02op"]
+
+[ext_resource type="PackedScene" uid="uid://y3o5kf5pxpe" path="res://Scenes/flecha.tscn" id="1_qkg24"]
+[ext_resource type="Texture2D" uid="uid://deg3li4tdriim" path="res://Assets/Towers/Wizard/wizard_bullet.png" id="2_j1kf5"]
+[ext_resource type="Script" path="res://Scripts/magia.gd" id="2_m456j"]
+
+[node name="Magia" instance=ExtResource("1_qkg24")]
+script = ExtResource("2_m456j")
+
+[node name="Arrow" parent="." index="2"]
+texture = ExtResource("2_j1kf5")

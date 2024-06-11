@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhg7bikrah1uc"]
+
+[ext_resource type="Texture2D" uid="uid://fsq8dbtddvrw" path="res://Assets/Towers/Archer/archer_level_1.png" id="1_qpjhm"]
+
+[node name="PanelArcher1" type="Panel"]
+custom_minimum_size = Vector2(10, 40)
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.123
+offset_right = 693.68
+offset_bottom = -32.704
+scale = Vector2(3, 3)
+
+[node name="ArcherLevel1" type="Sprite2D" parent="."]
+position = Vector2(5, 8.33333)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_qpjhm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -0.666667
+offset_top = 21.0
+offset_right = 39.3333
+offset_bottom = 44.0
+scale = Vector2(0.4, 0.4)
+text = "100
+"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

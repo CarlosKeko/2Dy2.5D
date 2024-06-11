@@ -14,15 +14,18 @@ height = 40.0
 script = ExtResource("1_hmeuq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 scale = Vector2(1.15805, 1.15805)
 shape = SubResource("CapsuleShape2D_5d88s")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5vmc2")
 
 [node name="Arrow" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("1_otd0p")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

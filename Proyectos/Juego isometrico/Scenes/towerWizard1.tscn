@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxm23dwkoeapm"]
+
+[ext_resource type="PackedScene" uid="uid://ch3cttlmx0csj" path="res://Scenes/towerArcher1.tscn" id="1_abc23"]
+[ext_resource type="Script" path="res://Scripts/towerWizard.gd" id="2_57tb7"]
+[ext_resource type="Texture2D" uid="uid://cnpvq8eu2j2u0" path="res://Assets/Towers/Wizard/wizard_level_1.png" id="3_m07i5"]
+
+[node name="Tower" instance=ExtResource("1_abc23")]
+script = ExtResource("2_57tb7")
+
+[node name="TowerArcher1" parent="." index="2"]
+texture = ExtResource("3_m07i5")

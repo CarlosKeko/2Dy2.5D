@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl25dy678ocqk"]
+
+[ext_resource type="PackedScene" uid="uid://dhg7bikrah1uc" path="res://Scenes/panelArqueros1.tscn" id="1_ejafr"]
+[ext_resource type="PackedScene" uid="uid://c1hxvecqjikh7" path="res://Scenes/panelWizard1.tscn" id="2_hh8d5"]
+
+[node name="Interfaz" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 979.0
+offset_top = 3.0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 66.0
+offset_bottom = 217.0
+scale = Vector2(3, 3)
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 10
+
+[node name="PanelArcher1" parent="Panel/FlowContainer" instance=ExtResource("1_ejafr")]
+layout_mode = 2
+
+[node name="PanelWizard1" parent="Panel/FlowContainer" instance=ExtResource("2_hh8d5")]
+layout_mode = 2
+
+[node name="Mejorar" type="Button" parent="Panel"]
+layout_mode = 2
+offset_left = 36.0
+offset_top = 164.0
+offset_right = 136.0
+offset_bottom = 264.0
+text = "Mejorar"
+
+[node name="Vender" type="Button" parent="Panel"]
+layout_mode = 2
+offset_left = 36.0
+offset_top = 295.0
+offset_right = 136.0
+offset_bottom = 395.0
+text = "Vender
+"

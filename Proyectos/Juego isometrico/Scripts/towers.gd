@@ -6,11 +6,19 @@ var pathName
 var currTargets = []
 var curr
 
+func _process(delta):
+	if is_instance_valid(curr):
+		pass 
+	
+	else:
+		for i in get_node("FlechaContainer").get_child_count():
+			get_node("FlechaContainer").get_child(i).queue_free()
+
 func _on_area_2d_body_entered(body):
 	if body is enemigo_nivel_1:
 		var tempArray = []
 		currTargets = get_node("Area2D").get_overlapping_bodies()
-		print(currTargets)
+		#print(currTargets)
 		
 		for i in currTargets:
 			if "Enemy" in i.name:
@@ -36,4 +44,4 @@ func _on_area_2d_body_entered(body):
 		tempFlecha.global_position = $Area.global_position
 
 func _on_area_2d_body_exited(body):
-	pass # Replace with function body.
+	currTargets = get_node("Area2D").get_overlapping_bodies()
