@@ -5,6 +5,7 @@ var flechaDamage = 10
 var pathName
 var currTargets = []
 var curr
+var nivelActual = 1
 
 func _process(delta):
 	if is_instance_valid(curr):
@@ -45,3 +46,7 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	currTargets = get_node("Area2D").get_overlapping_bodies()
+	
+func mejorar():
+	flechaDamage = 40
+

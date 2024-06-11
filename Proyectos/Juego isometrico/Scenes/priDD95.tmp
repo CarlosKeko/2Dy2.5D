@@ -856,4 +856,3 @@ text = "Vender
 [connection signal="gui_input" from="Interfaz/Panel/FlowContainer/PanelWizard1" to="." method="_on_panel_wizard_1_gui_input"]
 [connection signal="button_down" from="Interfaz/Panel/Mejorar" to="." method="_on_mejorar_button_down"]
 [connection signal="pressed" from="Interfaz/Panel/Mejorar" to="." method="_on_mejorar_pressed"]
-[connection signal="button_down" from="Interfaz/Panel/Vender" to="." method="_on_vender_button_down"]
