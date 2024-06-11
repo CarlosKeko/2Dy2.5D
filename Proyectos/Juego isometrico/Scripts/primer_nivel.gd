@@ -9,13 +9,17 @@ var torresColocadas = []
 var torreSeleccionada = null
 var cordsActualTower = null
 var panelAbierto = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Interfaz/Panel.hide()
-
+	$Interfaz/Panel/Timer.wait_time = Global.TIEMPO
+	$Interfaz/Panel/Timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$Interfaz/Panel/Contador.text = "%d:%02d" % [floor($Interfaz/Panel/Timer.time_left / 60), int($Interfaz/Panel/Timer.time_left) % 60]
+	
 	if Input.is_action_just_pressed("Click"):
 		var mouse_pos = get_global_mouse_position()
 		var tile_mouse_pos = local_to_map(mouse_pos)
@@ -40,7 +44,6 @@ func ponerTorre(idCela, tile_mouse_pos, mouse_pos):
 		Global.lugarValido = false
 		panelAbierto = false
 		$Interfaz/Panel.hide()
-		
 
 func _on_panel_archer_1_gui_input(event):
 	if event is InputEventMouseButton and event.button_mask == 1:
@@ -81,8 +84,6 @@ func _input(event):
 				$Interfaz/Panel/Mejorar.show()
 				$Interfaz/Panel/Vender.show()
 				panelAbierto = true
-				#mejorarTorre(torreSeleccionada)
-				
 
 func mejorarTorre(currTower, pos):
 	if currTower is towerArcher1:

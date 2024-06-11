@@ -851,6 +851,25 @@ offset_bottom = 395.0
 text = "Vender
 "
 
+[node name="ProgressBar" type="ProgressBar" parent="Interfaz/Panel"]
+layout_mode = 0
+offset_left = -972.0
+offset_top = 3.0
+offset_right = -759.0
+offset_bottom = 30.0
+
+[node name="Timer" type="Timer" parent="Interfaz/Panel"]
+one_shot = true
+autostart = true
+
+[node name="Contador" type="Label" parent="Interfaz/Panel"]
+layout_mode = 0
+offset_left = -734.0
+offset_top = 4.0
+offset_right = -694.0
+offset_bottom = 27.0
+text = "00:00"
+
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
 [connection signal="gui_input" from="Interfaz/Panel/FlowContainer/PanelArcher1" to="." method="_on_panel_archer_1_gui_input"]
 [connection signal="gui_input" from="Interfaz/Panel/FlowContainer/PanelWizard1" to="." method="_on_panel_wizard_1_gui_input"]
