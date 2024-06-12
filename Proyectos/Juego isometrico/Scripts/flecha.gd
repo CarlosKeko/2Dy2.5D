@@ -10,7 +10,8 @@ func _physics_process(delta):
 	
 	for i in pathSpawner.get_child_count():
 		if pathSpawner.get_child(i).name == pathName:
-			target = pathSpawner.get_child(i).get_child(0).get_child(0).global_position
+			if pathSpawner.get_child(i).get_child(0).get_child(0) != null:
+				target = pathSpawner.get_child(i).get_child(0).get_child(0).global_position
 	
 	velocity = global_position.direction_to(target) * speed
 	look_at(target)

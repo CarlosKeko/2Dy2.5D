@@ -6,6 +6,12 @@ var pathName
 var currTargets = []
 var curr
 var nivelActual = 1
+var damageE1 = 10
+var damageE2 = 20
+var damageE3 = 30
+var valorActual = 50
+var precio = [50, 100, 150]
+var mejorable = true
 
 func _process(delta):
 	if is_instance_valid(curr):
@@ -46,7 +52,36 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	currTargets = get_node("Area2D").get_overlapping_bodies()
-	
-func mejorar():
-	flechaDamage = 40
 
+func subirTorre():
+	if nivelActual == 1:
+		towerArcher2()
+		nivelActual = 2
+		valorActual = precio[nivelActual - 1]
+		Global.dinero -= valorActual
+		
+		
+	elif nivelActual == 2:
+		towerArcher3()
+		nivelActual = 3
+		valorActual = precio[nivelActual - 1]
+		mejorable = false
+		Global.dinero -= valorActual
+	
+func mejorar(damage):
+	flechaDamage = damage
+	
+func towerArcher2():
+	mejorar(damageE2)
+	
+func towerArcher3():
+	mejorar(damageE3)
+
+func obtenerPrecioMejora():
+	return precio[nivelActual]
+	
+func obtenerPrecioVender():
+	return valorActual
+	
+func torreMejorable():
+	return mejorable

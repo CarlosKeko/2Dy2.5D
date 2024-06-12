@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1hxvecqjikh7"]
+[gd_scene load_steps=3 format=3 uid="uid://c1hxvecqjikh7"]
 
+[ext_resource type="Script" path="res://Scripts/panelWizard1.gd" id="1_af2by"]
 [ext_resource type="Texture2D" uid="uid://cnpvq8eu2j2u0" path="res://Assets/Towers/Wizard/wizard_level_1.png" id="2_8hh6j"]
 
 [node name="PanelWizard1" type="Panel"]
@@ -10,6 +11,7 @@ anchor_bottom = 0.123
 offset_right = 693.68
 offset_bottom = -32.704
 scale = Vector2(3, 3)
+script = ExtResource("1_af2by")
 
 [node name="WizardLevel1" type="Sprite2D" parent="."]
 position = Vector2(5, 8.33333)
@@ -23,7 +25,7 @@ offset_top = 21.0
 offset_right = 39.333
 offset_bottom = 44.0
 scale = Vector2(0.4, 0.4)
-text = "300
+text = "100
 "
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
