@@ -19,6 +19,7 @@ func _process(delta):
 		queue_free()
 		
 	if vida <= 0:
+		Global.enemigosEliminados += 1
 		Global.dinero += dinero
 		get_parent().get_parent().queue_free()
 

@@ -25,6 +25,15 @@ func _process(delta):
 	$Interfaz/Panel2/Dinero.text = str(Global.dinero) + " $"
 	$Interfaz/Panel2/Contador.text = "%d:%02d" % [floor($Interfaz/Panel2/Timer.time_left / 60), int($Interfaz/Panel2/Timer.time_left) % 60]
 	Global.tiempoRestante = $Interfaz/Panel2/Timer.time_left
+	
+	if Global.vida == 0:
+		Global.resultado = false
+		Global.g_canvi_escena("Estadisticas")
+		
+	if Global.tiempoRestante == 0:
+		Global.resultado = true
+		Global.g_canvi_escena("Estadisticas")		
+	
 	if Input.is_action_just_pressed("Click"):
 		var mouse_pos = get_global_mouse_position()
 		var tile_mouse_pos = local_to_map(mouse_pos)
@@ -149,3 +158,7 @@ func _on_vender_button_down():
 
 func _on_timer_notificacion_timeout():
 	$Interfaz/Panel3.hide()
+
+
+func _on_audio_stream_player_2d_finished():
+	$AudioStreamPlayer2D.play()

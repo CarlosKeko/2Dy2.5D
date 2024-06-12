@@ -7,4 +7,5 @@ func _ready():
 	damageE1 = 40
 	damageE2 = 50
 	damageE3 = 60
-	precio = [100, 150, 200]
+	precio = [100, 500, 1000]
+	$Temporizador.wait_time = 3

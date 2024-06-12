@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://c335j151jf4i7"]
+
+[ext_resource type="FontFile" uid="uid://defnmjsdhl466" path="res://Assets/NormalFont.ttf" id="1_iu86j"]
+[ext_resource type="Script" path="res://Scripts/estadisticas.gd" id="2_2ejj5"]
+[ext_resource type="Texture2D" uid="uid://db3c8l6hjaxkf" path="res://Assets/istockphoto-1387666645-612x612.jpg" id="2_l7bfy"]
+[ext_resource type="AudioStream" uid="uid://rjhkn5617b6g" path="res://Assets/Musica/8 - End Theme.ogg" id="4_b3vn3"]
+
+[sub_resource type="Theme" id="Theme_xn5sp"]
+default_font = ExtResource("1_iu86j")
+
+[node name="Estadisticas" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xn5sp")
+script = ExtResource("2_2ejj5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l7bfy")
+
+[node name="MarginContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 100.0
+offset_right = 75.0
+offset_bottom = 140.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "ESTADISTICAS"
+
+[node name="Resultado" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "VICTORIA"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -49.0
+offset_right = 97.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.01572, 1)
+
+[node name="DineroGanado" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dinero ganado:"
+
+[node name="EnemigosEliminados" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Enemigos eliminados:"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.5
+offset_top = -248.0
+offset_right = 26.5
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Menu" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "MENU"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_b3vn3")
+volume_db = -24.36
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer2/Menu" to="." method="_on_menu_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

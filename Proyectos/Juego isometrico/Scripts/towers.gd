@@ -10,10 +10,15 @@ var damageE1 = 10
 var damageE2 = 20
 var damageE3 = 30
 var valorActual = 50
-var precio = [50, 100, 150]
+var precio = [50, 300, 500]
 var mejorable = true
+var incoldown = false
 
 func _process(delta):
+	if incoldown:
+		$DisparoColdown.show()
+		$DisparoColdown.value = $Temporizador.time_left
+	
 	if is_instance_valid(curr):
 		pass 
 	
@@ -22,10 +27,9 @@ func _process(delta):
 			get_node("FlechaContainer").get_child(i).queue_free()
 
 func _on_area_2d_body_entered(body):
-	if body is enemigo_nivel_1:
+	if body is enemigo_nivel_1 and !incoldown:
 		var tempArray = []
 		currTargets = get_node("Area2D").get_overlapping_bodies()
-		#print(currTargets)
 		
 		for i in currTargets:
 			if "Enemy" in i.name:
@@ -49,6 +53,9 @@ func _on_area_2d_body_entered(body):
 		tempFlecha.flechaDamage = flechaDamage
 		get_node("FlechaContainer").add_child(tempFlecha)
 		tempFlecha.global_position = $Area.global_position
+		$Temporizador.start()
+		$DisparoColdown.max_value = $Temporizador.wait_time
+		incoldown = true
 
 func _on_area_2d_body_exited(body):
 	currTargets = get_node("Area2D").get_overlapping_bodies()
@@ -85,3 +92,7 @@ func obtenerPrecioVender():
 	
 func torreMejorable():
 	return mejorable
+
+func _on_temporizador_timeout():
+	incoldown = false
+	$DisparoColdown.hide()

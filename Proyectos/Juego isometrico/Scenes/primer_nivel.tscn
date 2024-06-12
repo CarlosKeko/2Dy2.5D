@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://c3kd6carax4vg"]
+[gd_scene load_steps=57 format=3 uid="uid://c3kd6carax4vg"]
 
 [ext_resource type="Texture2D" uid="uid://ocfp5v8jeft7" path="res://Assets/Road tiles/Winter biome/road_winter(1).png" id="1_sb6ft"]
 [ext_resource type="Texture2D" uid="uid://ckpv45o7kjrfn" path="res://Assets/Road tiles/Winter biome/road_winter(3).png" id="2_jeeyt"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://Scripts/PathSpawner.gd" id="22_xnnj4"]
 [ext_resource type="PackedScene" uid="uid://dhg7bikrah1uc" path="res://Scenes/panelArqueros1.tscn" id="23_x5vhv"]
 [ext_resource type="PackedScene" uid="uid://c1hxvecqjikh7" path="res://Scenes/panelWizard1.tscn" id="24_3jxol"]
+[ext_resource type="AudioStream" uid="uid://c5sr6b7ugiaqf" path="res://Assets/Musica/28 - Tension.ogg" id="30_om4vs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8xben"]
 texture = ExtResource("1_sb6ft")
@@ -861,6 +862,7 @@ offset_left = 19.0
 offset_top = 18.0
 offset_right = 232.0
 offset_bottom = 45.0
+show_percentage = false
 
 [node name="Timer" type="Timer" parent="Interfaz/Panel2"]
 one_shot = true
@@ -895,6 +897,7 @@ offset_right = 430.0
 offset_bottom = 638.0
 
 [node name="Label" type="Label" parent="Interfaz/Panel3"]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 16.0
 offset_right = 394.0
@@ -907,6 +910,11 @@ text = "¡NO TIENES DINERO!"
 [node name="TimerNotificacion" type="Timer" parent="Interfaz/Panel3"]
 one_shot = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("30_om4vs")
+volume_db = -21.175
+autoplay = true
+
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
 [connection signal="gui_input" from="Interfaz/Panel/FlowContainer/PanelArcher1" to="." method="_on_panel_archer_1_gui_input"]
 [connection signal="gui_input" from="Interfaz/Panel/FlowContainer/PanelWizard1" to="." method="_on_panel_wizard_1_gui_input"]
@@ -914,3 +922,4 @@ one_shot = true
 [connection signal="pressed" from="Interfaz/Panel/Mejorar" to="." method="_on_mejorar_pressed"]
 [connection signal="button_down" from="Interfaz/Panel/Vender" to="." method="_on_vender_button_down"]
 [connection signal="timeout" from="Interfaz/Panel3/TimerNotificacion" to="." method="_on_timer_notificacion_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
