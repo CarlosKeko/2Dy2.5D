@@ -9,8 +9,9 @@ var torresColocadas = []
 var torreSeleccionada = null
 var cordsActualTower = null
 var panelAbierto = false
+var vidaAnterior = null
 
-# Called when the node enters the scene tree for the first time.
+# En el metodo ready
 func _ready():
 	$Interfaz/Panel3/TimerNotificacion.wait_time = 2
 	$Interfaz/Panel3.hide()
@@ -18,6 +19,7 @@ func _ready():
 	$Interfaz/Panel2/Timer.wait_time = Global.TIEMPO
 	$Interfaz/Panel2/Timer.start()
 	$Interfaz/Panel2/Vida.max_value = Global.vida
+	vidaAnterior = Global.vida
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -25,6 +27,10 @@ func _process(delta):
 	$Interfaz/Panel2/Dinero.text = str(Global.dinero) + " $"
 	$Interfaz/Panel2/Contador.text = "%d:%02d" % [floor($Interfaz/Panel2/Timer.time_left / 60), int($Interfaz/Panel2/Timer.time_left) % 60]
 	Global.tiempoRestante = $Interfaz/Panel2/Timer.time_left
+	
+	if Global.vida != vidaAnterior:
+		$DamageRecibido.play()
+		vidaAnterior = Global.vida
 	
 	if Global.vida == 0:
 		Global.resultado = false
@@ -71,6 +77,7 @@ func _on_panel_archer_1_gui_input(event):
 				new_tower.hide()
 				torresColocadas.append(new_tower)
 				Global.dinero -= Global.PRECIOARCHER
+				$construir.play()				
 				
 			else:
 				$Interfaz/Panel3/TimerNotificacion.start()
@@ -88,6 +95,7 @@ func _on_panel_wizard_1_gui_input(event):
 				new_tower.hide()
 				torresColocadas.append(new_tower)
 				Global.dinero -= Global.PRECIOWIZARD
+				$construir.play()
 				
 			else:
 				$Interfaz/Panel3/TimerNotificacion.start()

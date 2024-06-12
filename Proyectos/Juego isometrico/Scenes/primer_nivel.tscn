@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c3kd6carax4vg"]
+[gd_scene load_steps=59 format=3 uid="uid://c3kd6carax4vg"]
 
 [ext_resource type="Texture2D" uid="uid://ocfp5v8jeft7" path="res://Assets/Road tiles/Winter biome/road_winter(1).png" id="1_sb6ft"]
 [ext_resource type="Texture2D" uid="uid://ckpv45o7kjrfn" path="res://Assets/Road tiles/Winter biome/road_winter(3).png" id="2_jeeyt"]
@@ -30,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://dhg7bikrah1uc" path="res://Scenes/panelArqueros1.tscn" id="23_x5vhv"]
 [ext_resource type="PackedScene" uid="uid://c1hxvecqjikh7" path="res://Scenes/panelWizard1.tscn" id="24_3jxol"]
 [ext_resource type="AudioStream" uid="uid://c5sr6b7ugiaqf" path="res://Assets/Musica/28 - Tension.ogg" id="30_om4vs"]
+[ext_resource type="AudioStream" uid="uid://dyplsrhnoubdb" path="res://Assets/Musica/place-100513.mp3" id="31_3dkiu"]
+[ext_resource type="AudioStream" uid="uid://cp1irblg65p0m" path="res://Assets/Musica/small-explosion-106769.mp3" id="32_88q0n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8xben"]
 texture = ExtResource("1_sb6ft")
@@ -914,6 +916,12 @@ one_shot = true
 stream = ExtResource("30_om4vs")
 volume_db = -21.175
 autoplay = true
+
+[node name="construir" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("31_3dkiu")
+
+[node name="DamageRecibido" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("32_88q0n")
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
 [connection signal="gui_input" from="Interfaz/Panel/FlowContainer/PanelArcher1" to="." method="_on_panel_archer_1_gui_input"]

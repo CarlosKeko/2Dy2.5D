@@ -1,7 +1,8 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
+# La funcion ready nos pondra si hemos ganado o perdido en una label y modifacara el resto con el dinero ganado
+# y los enemigos eliminados
 func _ready():
 	if Global.resultado:
 		$MarginContainer/Resultado.text = "¡VICTORIA!"
@@ -11,6 +12,7 @@ func _ready():
 		
 	$VBoxContainer/DineroGanado.text = "Dinero    final:   " + str(Global.dinero) + "$"
 	$VBoxContainer/EnemigosEliminados.text = "Enemigos    eliminados:   " + str(Global.enemigosEliminados)
+
 
 func _on_menu_pressed():
 	Global.g_canvi_escena("Menu")

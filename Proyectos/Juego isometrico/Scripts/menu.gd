@@ -1,5 +1,8 @@
 extends Control
 
+# Un menu normal sin mucha dificultad, para cambiar de escena y para poner los valores por default cuando empecemos
+# una nueva partida
+
 func _on_start_pressed():
 	Global.dinero = Global.DEFAULTDINERO
 	Global.vida = Global.DEFAULTVIDA

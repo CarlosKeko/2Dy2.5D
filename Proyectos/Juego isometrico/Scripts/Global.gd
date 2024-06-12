@@ -25,6 +25,8 @@ var numFase = DEFAULTFASE
 var resultado = false
 
 # metodes globals
+
+#Funcion para cambiar de escenas
 func g_canvi_escena(nomEscenaAnar):
 	if (nomEscenaAnar == "PrimerNivel"):
 		get_tree().change_scene_to_packed(ESC_PRIMERNIVEL)
@@ -35,7 +37,9 @@ func g_canvi_escena(nomEscenaAnar):
 	elif (nomEscenaAnar == "Estadisticas"):
 		get_tree().change_scene_to_packed(ESC_ESTADISTICAS)
 
-		
+# Funcion para calcular la fase de la partida, siempre se dividira en 4 fases y dependiendo de el game balancing que
+# queramos deberemos ir modificado los valores de probabilidades y vidaEnemigos, como son 3 tipos de enemigos tenemos
+# una array con 3 huecos. 
 func calcularFase():
 	if tiempoRestante < (TIEMPO * 25) / 100:
 		probabilidades = [0.1, 0.4, 0.5]
@@ -54,5 +58,5 @@ func calcularFase():
 		
 	else:
 		probabilidades = [0.7, 0.3, 0.0]
-		vidaEnemigos = [[10, 15], [20, 25], [0, 0]]
+		vidaEnemigos = [[10, 10], [20, 25], [0, 0]]
 		numFase = 1

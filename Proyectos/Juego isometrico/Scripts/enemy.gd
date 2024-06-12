@@ -4,6 +4,8 @@ class_name enemigo_nivel_1 extends CharacterBody2D
 var vida = 10 
 var dinero = 10
 
+# En la funcion ready calculamos la fase de la partida para poder calcular el nivel del enemigo que sacaremos
+# con esto calculamos, la vida que tendra y el dinero. Tambien ponemos la barra de vida del enemigo en su punto
 func _ready():
 	Global.calcularFase()
 	var nivelEnemigo = elegirEnemigo()
@@ -11,6 +13,9 @@ func _ready():
 	cambiarValores(nivelEnemigo)
 	$ProgressBar.max_value = vida
 
+# En el proces vamos actualizando la barra de vida del enemigo. Tambien vamos avanzando al enemigo por la ruta
+# despues si llega al final de la ruta desaparaece y nos resta vida. Si la vida del enemigo llega a 0 se eliminara
+# nos dara dinero y puntuacion
 func _process(delta):
 	$ProgressBar.value = vida
 	get_parent().set_progress(get_parent().get_progress() + speed * delta)
@@ -23,6 +28,9 @@ func _process(delta):
 		Global.dinero += dinero
 		get_parent().get_parent().queue_free()
 
+# Esta funcion la usamos para elegir al tipo de enemigo, usamos la probabilidad acumulativa y calculamos con rand
+# que tipo de enemigo saldra, nos devolvera uno de los tipo de enemigos y si falla nos devolvera 1, de 1 a 3 segun
+# el tipo que salga. Cada numero representa uno diferente
 func elegirEnemigo():
 	var probabilidadAcumulativa = []
 	var total = 0.0
@@ -39,6 +47,7 @@ func elegirEnemigo():
 			
 	return 1
 
+# Esta funcion nos permite cambiar los valores del enemigo, la textura y el dinero que nos daa
 func cambiarValores(nivelEnemigo):
 	if nivelEnemigo == 1:
 		$Sprite2D.texture = load("res://Assets/UFO/UFO(1).png")
@@ -52,5 +61,7 @@ func cambiarValores(nivelEnemigo):
 		$Sprite2D.texture = load("res://Assets/UFO/UFO(7).png")
 		dinero = 30
 
+# Esta funcion nos permite elegir un valor entre un minimo y un maximo aleatoriamente
 func randi_range(min_value, max_value):
 	return randi() % (max_value - min_value + 1) + min_value
+
