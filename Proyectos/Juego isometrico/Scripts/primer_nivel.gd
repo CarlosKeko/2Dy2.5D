@@ -11,7 +11,7 @@ var cordsActualTower = null
 var panelAbierto = false
 var vidaAnterior = null
 
-# En el metodo ready
+# En el metodo ready ocultaremos la interfaz y pondremos todos los timers y la vida apunto para empezar la partida
 func _ready():
 	$Interfaz/Panel3/TimerNotificacion.wait_time = 2
 	$Interfaz/Panel3.hide()
@@ -21,7 +21,9 @@ func _ready():
 	$Interfaz/Panel2/Vida.max_value = Global.vida
 	vidaAnterior = Global.vida
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Aquin actualizaremos los valores como la vida, dinero y contadores, tambien reproduciremos sonido y comprobaremos
+# que la vida no nos llegue a 0 y tengamos que acabar la partida. Tambien comprobaremos si el jugador clica sobre
+# una casilla para colocar una torre
 func _process(delta):
 	$Interfaz/Panel2/Vida.value = Global.vida
 	$Interfaz/Panel2/Dinero.text = str(Global.dinero) + " $"
@@ -49,6 +51,7 @@ func _process(delta):
 		torrePuesta = idCelaSuperior != -1
 		ponerTorre(idCela, tile_mouse_pos, mouse_pos)
 
+# Esta funcion recibe diferentes parametros para ver si es un lugar valido y mostrar la interfaz correspondiente
 func ponerTorre(idCela, tile_mouse_pos, mouse_pos):
 	if idCela == Global.LUGARLIBRE:
 		Global.lugarValido = true
@@ -65,6 +68,8 @@ func ponerTorre(idCela, tile_mouse_pos, mouse_pos):
 		panelAbierto = false
 		$Interfaz/Panel.hide()
 
+# Si pulsamos sobre el boton de colocar torreta se ejecutara estaa funcion, la cual creara un hijo torreta y lo 
+# colocara, despues en el tilemap tambien se colocara y se ocultara el sprite del hijo para que solo quede lo demas
 func _on_panel_archer_1_gui_input(event):
 	if event is InputEventMouseButton and event.button_mask == 1:
 		if Global.lugarValido:
@@ -83,6 +88,8 @@ func _on_panel_archer_1_gui_input(event):
 				$Interfaz/Panel3/TimerNotificacion.start()
 				$Interfaz/Panel3.show()
 
+# Si pulsamos sobre el boton de colocar torreta se ejecutara esta funcion, la cual creara un hijo torreta y lo 
+# colocara, despues en el tilemap tambien se colocara y se ocultara el sprite del hijo para que solo quede lo demas
 func _on_panel_wizard_1_gui_input(event):
 	if event is InputEventMouseButton and event.button_mask == 1:
 		if Global.lugarValido:
@@ -101,6 +108,8 @@ func _on_panel_wizard_1_gui_input(event):
 				$Interfaz/Panel3/TimerNotificacion.start()
 				$Interfaz/Panel3.show()
 
+# Esta funcion detecta si clicamos sobre el mapa en una torreta, nos comprueba gracias a un bucle si la coordenada
+# que estamos pulsando hay una torreta, despues nos muestra la interfaz correspondiente
 func _input(event):
 	var encontrado = false
 	
@@ -127,6 +136,7 @@ func _input(event):
 				$Interfaz/Panel/Vender.text = "Vender: " + str(torreSeleccionada.obtenerPrecioVender()) + "$"
 				panelAbierto = true
 
+# Esta funcion mejora la torre y modifica el tile correspondiente, despues llama a la funcion subirTorre() del hijo
 func mejorarTorre(currTower, pos):
 	if currTower is towerArcher1:
 		if get_cell_source_id(1, pos, false) == 22:
@@ -145,12 +155,14 @@ func mejorarTorre(currTower, pos):
 			set_cell(1, pos, 24, Vector2i(0, 0))
 			currTower.subirTorre()
 			
+# Funcion para vender la torre y liberar el tile correspondiente
 func venderTorre(currTower, pos):
 	Global.dinero += currTower.obtenerPrecioVender()
 	currTower.queue_free()
 	set_cell(1, pos, -1, Vector2i(0, 0))
 	torresColocadas.erase(currTower)
 
+# Funcion para mejorar la torre al pulsar el boton, si no tenemos dinero nos notificara
 func _on_mejorar_button_down():
 	if panelAbierto and torreSeleccionada.torreMejorable():
 		if torreSeleccionada.obtenerPrecioMejora() > Global.dinero:
@@ -160,6 +172,7 @@ func _on_mejorar_button_down():
 		else:
 			mejorarTorre(torreSeleccionada, cordsActualTower)
 
+# Boton para vender la torre
 func _on_vender_button_down():
 	if panelAbierto:
 		venderTorre(torreSeleccionada, cordsActualTower)
